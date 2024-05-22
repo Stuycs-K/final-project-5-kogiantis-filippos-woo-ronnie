@@ -1,4 +1,5 @@
 Board board = new Board();
+int m = 300; //milli-seconds counting
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
@@ -6,5 +7,11 @@ void setup(){
 }
 void draw() {
   board.display();
-  board.spawnPiece();
+  //board.spawnPiece();
+  tick();
+}
+
+void tick(){
+  delay(m); //
+  board.fall();
 }

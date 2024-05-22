@@ -30,12 +30,35 @@ public class Board{
   noFill();
   noStroke();
   }
+  
+  
+  /*
+  
+  
+  */
   public void spawnPiece(){
     //only spawns I pieces
     currentPiece = new I();
     for (int[] position : currentPiece.blocks){
+      //grid()
       fill(0,0,255);
+      stroke(255);
       square(position[1]*blocksize, position[0]*blocksize,blocksize);
+    }
+  }
+  
+  
+  /**/
+  public void fall(){
+    for (int r = grid.length-1;r > 0;r--){
+      for (int c = 0;c < grid[0].length;c++){
+        if (grid[r][c] == 0){
+          if (grid[r-1][c] != 0){
+            grid[r][c] = grid[r-1][c];
+            grid[r-1][c] = 0;
+          }
+        }
+      }
     }
   }
 }
