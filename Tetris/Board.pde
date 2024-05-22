@@ -2,7 +2,7 @@ public class Board{
   private int[][] board;
   
   public Board(){
-    this(20,9);
+    this(20,10);
   }
   public Board(int r, int c){
     board = new int[r][c];
