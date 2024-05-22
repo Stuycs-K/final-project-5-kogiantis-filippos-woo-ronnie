@@ -1,8 +1,7 @@
-public class Piece{
-  private String name;
-  private String pieceColor;
-  private int[][] blocks;
-  private boolean isPlaced;
+public abstract class Piece{
+  public String name;
+  public int[][] blocks;
+  public boolean isPlaced;
   
   public Piece(){
     isPlaced = false;

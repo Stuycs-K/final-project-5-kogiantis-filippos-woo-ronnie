@@ -1,19 +1,10 @@
-static final int blocksize = 20;
-int[][] grid;
+Board board = new Board();
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  //20 rows and 9 columns
-  grid = new int[20][10];
+  board.setBlock(0,4,1);
 }
 void draw() {
-  fill(0,0,0);
-  stroke(255);
-  for (int r = 0; r < 20; r += 1){
-    for (int c = 0; c < 10; c += 1){
-      square(c*blocksize,r*blocksize,blocksize);
-    }
-  }
-  noFill();
-  noStroke();
+  board.display();
+  board.spawnPiece();
 }
