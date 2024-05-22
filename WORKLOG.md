@@ -23,5 +23,6 @@ info
 
 ### date 5/22/2024
 
-
+made basic board class
+fixed the display so it fits to display size
 

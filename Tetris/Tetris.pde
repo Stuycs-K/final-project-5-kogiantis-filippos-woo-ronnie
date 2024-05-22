@@ -1,7 +1,8 @@
 static final int blocksize = 20;
 int[][] grid;
 void setup(){
-  size(800,800);
+  size(400,400);
+  windowResize(displayWidth-200,displayHeight-200);
   //20 rows and 9 columns
   grid = new int[20][9];
 }

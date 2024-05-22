@@ -1,5 +1,5 @@
 public class Board{
-  int[][] board;
+  private int[][] board;
   
   public Board(){
     this(20,9);
