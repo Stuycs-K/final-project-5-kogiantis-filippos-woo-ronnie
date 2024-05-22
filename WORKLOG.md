@@ -1,25 +1,18 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Ronnie Woo
 
-### date x
+### 5/22/24
 
-info
+made game display
+made piece class
+made i piece class
+added spawning i piece 
 
-### date y
 
-info
 
 
 ## Filippos Kogiantis
-
-### date x
-
-info
-
-### date y
-
-info
 
 ### date 5/22/2024
 
