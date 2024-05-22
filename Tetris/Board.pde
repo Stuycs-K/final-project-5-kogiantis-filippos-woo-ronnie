@@ -1,11 +1,13 @@
 public class Board{
   private int[][] grid;
-  private int blocksize;
+  //private int blocksize;
+  // I dont think blocksize should be part of the class bc it is only display feature.
+  // display features should be outside of the class.
   private Piece currentPiece;
   
   public Board(){
     grid = new int[20][10];
-    blocksize = 20;
+    //blocksize = 20;
   }
   public int getBlock(int r, int c){
     return grid[r][c];
@@ -18,6 +20,10 @@ public class Board{
   /*
   void display()
   
+  INPUTS:
+  int (x,y): top left coordinates of grid [procCor]
+  int size: the size of each grid (size == side length of grid box).
+  
   FUNCTION (as of now):
   
   displays the grid itself, and the pieces on the grid 
@@ -26,7 +32,7 @@ public class Board{
   PROBLEMS:
   I am thinking maybe we sould add inputs to where the grid will display, and what size. otherwise, it is fine.
   */
-  public void display(){
+  public void display(int x,int y, int size){
     fill(0,0,0);
     stroke(255);
     for (int r = 0; r < 20; r += 1){
@@ -37,7 +43,7 @@ public class Board{
         else{
           fill(0);
         }
-        square(c*blocksize,r*blocksize,blocksize);
+        square(x+c*size,y+r*size,size);
       }
     }
     noFill();
@@ -49,9 +55,11 @@ public class Board{
   void spawnPiece()
   
   FUNCTION (as of now):
-  spawns a block at the top of the grid.
+  spawns a block at the top of the grid. changes values of grid.
   
   PROBLEMS:
+  
+  [fixed]
   does not change the value withing the grid itself. this needs to be fixed.
   
   */
@@ -59,10 +67,14 @@ public class Board{
     //only spawns I pieces
     currentPiece = new I();
     for (int[] position : currentPiece.blocks){
-      //grid()
-      fill(0,0,255);
-      stroke(255);
-      square(position[1]*blocksize, position[0]*blocksize,blocksize);
+      grid[position[0]][position[1]] = currentPiece.col;
+      
+      /*
+      I commented this out bc this work is done in the display() method.
+      */
+      //fill(0,0,255);
+      //stroke(255);
+      //square(position[1]*blocksize, position[0]*blocksize,blocksize);
     }
   }
   
