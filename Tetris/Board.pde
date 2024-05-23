@@ -9,11 +9,11 @@ public class Board{
     grid = new Block[20][10];
     //blocksize = 20;
   }
-  public int getBlock(int r, int c){
+  public Block getBlock(int r, int c){
     return grid[r][c];
   }
-  public void setBlock(int r, int c, int val){
-    grid[r][c] = val;
+  public void setBlock(int r, int c, Block b){
+    grid[r][c] = b;
   }
   
   
@@ -37,7 +37,7 @@ public class Board{
     stroke(255);
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
-        if (grid[r][c] == 1){
+        if (grid[r][c] != null){
           fill(0,0,255);
         }
         else{
