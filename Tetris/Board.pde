@@ -83,9 +83,9 @@ public class Board{
   
   */
   public void fall(){
-    for (int r = grid.length-1;r > 0;r--){
+    for (int r = grid.length-2;r >= 0;r--){
       for (int c = 0;c < grid[0].length;c++){
-        if (grid[r][c] != null && !grid[r][c].isPlaced() && grid[r-1][c]!=null){
+        if (grid[r][c] != null && grid[r+1][c]!=null){
             grid[r][c].setPlaced(true);
             grid[r-1][c] = null;
         }
