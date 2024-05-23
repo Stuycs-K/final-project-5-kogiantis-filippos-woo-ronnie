@@ -1,12 +1,12 @@
 public class Board{
-  private int[][] grid;
+  private Block[][] grid;
   //private int blocksize;
   // I dont think blocksize should be part of the class bc it is only display feature.
   // display features should be outside of the class.
   private Piece currentPiece;
   
   public Board(){
-    grid = new int[20][10];
+    grid = new Block[20][10];
     //blocksize = 20;
   }
   public int getBlock(int r, int c){
