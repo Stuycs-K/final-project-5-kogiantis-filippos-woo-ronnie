@@ -8,8 +8,6 @@ void setup(){
 }
 void draw() {
   board.display(100,100,15);
-  //board.spawnPiece();
-  // this makes a new block every run of the program. gives you a whole column of blue I's
   tick();
 }
 

@@ -1,19 +1,15 @@
 public class Board{
   private Block[][] grid;
-  //private int blocksize;
-  // I dont think blocksize should be part of the class bc it is only display feature.
-  // display features should be outside of the class.
   private Piece currentPiece;
   
   public Board(){
     grid = new Block[20][10];
-    //blocksize = 20;
   }
-  public int getBlock(int r, int c){
-    return grid[r][c];
+  public boolean checkBlock(int r, int c){
+    return grid[r][c].isPlaced();
   }
-  public void setBlock(int r, int c, int val){
-    grid[r][c] = val;
+  public void setBlock(int r, int c, boolean b){
+    grid[r][c].setPlaced(b);
   }
   
   
@@ -37,7 +33,7 @@ public class Board{
     stroke(255);
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
-        if (grid[r][c] == 1){
+        if (grid[r][c].isPlaced()){
           fill(0,0,255);
         }
         else{
@@ -66,15 +62,8 @@ public class Board{
   public void spawnPiece(){
     //only spawns I pieces
     currentPiece = new I();
-    for (int[] position : currentPiece.blocks){
-      grid[position[0]][position[1]] = currentPiece.col;
-      
-      /*
-      I commented this out bc this work is done in the display() method.
-      */
-      //fill(0,0,255);
-      //stroke(255);
-      //square(position[1]*blocksize, position[0]*blocksize,blocksize);
+    for (Block block : currentPiece.blocks){
+      grid[block.getRow()][block.getCol()].setPlaced(true);
     }
   }
   
@@ -93,11 +82,9 @@ public class Board{
   public void fall(){
     for (int r = grid.length-1;r > 0;r--){
       for (int c = 0;c < grid[0].length;c++){
-        if (grid[r][c] == 0){
-          if (grid[r-1][c] != 0){
-            grid[r][c] = grid[r-1][c];
-            grid[r-1][c] = 0;
-          }
+        if (!grid[r][c].isPlaced() && grid[r-1][c]!=null){
+            grid[r][c].setPlaced(true);
+            grid[r-1][c] = null;
         }
       }
     }

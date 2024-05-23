@@ -7,6 +7,13 @@ public class Block{
     c = col;
     placed = false;
   }
+  public int getRow(){
+    return r;
+  }
+  public int getCol(){
+    return c;
+  }
+  
   public boolean isPlaced(){
     return placed;
   }
