@@ -62,8 +62,11 @@ public class Board{
   public void spawnPiece(){
     //only spawns I pieces
     currentPiece = new I();
-    for (Block block : currentPiece.blocks){
-      grid[block.getRow()][block.getCol()].setPlaced(true);
+    if (currentPiece != null){
+      for (Block block : currentPiece.blocks){
+        grid[block.getRow()][block.getCol()] = block;
+        grid[block.getRow()][block.getCol()].setPlaced(true);
+      }
     }
   }
   
@@ -82,7 +85,7 @@ public class Board{
   public void fall(){
     for (int r = grid.length-1;r > 0;r--){
       for (int c = 0;c < grid[0].length;c++){
-        if (!grid[r][c].isPlaced() && grid[r-1][c]!=null){
+        if (grid[r][c] != null && !grid[r][c].isPlaced() && grid[r-1][c]!=null){
             grid[r][c].setPlaced(true);
             grid[r-1][c] = null;
         }
