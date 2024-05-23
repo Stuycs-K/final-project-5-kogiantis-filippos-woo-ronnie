@@ -33,7 +33,7 @@ public class Board{
     stroke(255);
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
-        if (grid[r][c].isPlaced()){
+        if (grid[r][c] != null){
           fill(0,0,255);
         }
         else{
