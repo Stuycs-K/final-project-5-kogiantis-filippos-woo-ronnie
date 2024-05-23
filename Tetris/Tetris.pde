@@ -3,9 +3,8 @@ int m = 300; //milli-seconds counting
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  board.setBlock(0,4,1);
-  
   board.spawnPiece();
+  frameRate(2);
 }
 void draw() {
   board.display(100,100,15);
