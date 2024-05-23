@@ -3,7 +3,7 @@ int m = 300; //milli-seconds counting
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  board.spawnPiece();
+  board.spawnPiece("T");
   frameRate(2);
 }
 void draw() {
@@ -17,5 +17,5 @@ void tick(){
 }
 
 void keyPressed(){
-  board.spawnPiece();
+  board.spawnPiece("L");
 }

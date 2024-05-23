@@ -16,4 +16,18 @@ public abstract class Piece{
   public void setPlaced(boolean b){
     placed = b;
   }
+  public Block[] getBlocks(){
+    return blocks;
+  }
+  public boolean containsBlock(Block b){
+    for (int i = 0;i<blocks.length;i++){
+      if (blocks[i] == b){
+        return true;
+      }
+    }
+    return false;
+  }
+  public String getName(){
+    return name;
+  }
 }
