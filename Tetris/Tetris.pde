@@ -15,3 +15,7 @@ void tick(){
   delay(m); //
   board.fall();
 }
+
+void keyPressed(){
+  board.spawnPiece();
+}

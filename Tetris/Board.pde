@@ -59,9 +59,18 @@ public class Board{
   does not change the value withing the grid itself. this needs to be fixed.
   
   */
-  public void spawnPiece(){
-    //only spawns I pieces
-    currentPiece = new I();
+  public void spawnPiece(String n){
+    ////only spawns I pieces
+    //currentPiece = new I();
+    if (n.equals("I")){
+      currentPiece = new I();
+    }
+    else if(n.equals("L")){
+      currentPiece = new L();
+    }
+    else if(n.equals("T")){
+      currentPiece = new T();
+    }
     if (currentPiece != null){
       for (Block block : currentPiece.blocks){
         grid[block.getRow()][block.getCol()] = block;
@@ -76,6 +85,7 @@ public class Board{
   
   FUNCTION (as of now):
   if there is an empty space below the block, the piece will fall.
+  single time
   
   PROBLEMS:
   does not have a way of checking if the peice has been placed in a particular spot.
@@ -83,10 +93,20 @@ public class Board{
   
   */
   public void fall(){
-    for (int r = grid.length-2;r >= 0;r--){
+    for (int r = grid.length-2;r > 0;r--){
       for (int c = 0;c < grid[0].length;c++){
-        if (grid[r][c] != null && grid[r+1][c]!=null){
-            grid[r][c].setPlaced(true);
+        if (grid[r][c] == null && grid[r-1][c]!=null){
+            grid[r][c] = grid[r-1][c];
+            grid[r-1][c] = null;
+        }
+      }
+    }
+  }
+  public void pieceFall(){
+    for (int r = grid.length-2;r > 0;r--){
+      for (int c = 0;c < grid[0].length;c++){
+        if (grid[r-1][c] != null && currentPiece.isPlaced() == false && grid[r][c] == null){
+            grid[r][c] = grid[r-1][c];
             grid[r-1][c] = null;
         }
       }

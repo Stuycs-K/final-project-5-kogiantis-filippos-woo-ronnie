@@ -4,11 +4,16 @@ public abstract class Piece{
   */
   public String name;
   public Block[] blocks;
-  public boolean isPlaced;
+  public boolean placed;
   public int col;
   
   public Piece(){
-    isPlaced = false;
-    
+    placed = false;
+  }
+  public boolean isPlaced(){
+    return placed;
+  }
+  public void setPlaced(boolean b){
+    placed = b;
   }
 }
