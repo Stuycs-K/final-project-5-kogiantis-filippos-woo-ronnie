@@ -13,9 +13,9 @@ void draw() {
 
 void tick(){
   delay(m); //
-  board.fallPiece();
+  board.fall();
 }
 
 void keyPressed(){
-  board.spawnPiece("L");
+  //board.spawnPiece("L");
 }

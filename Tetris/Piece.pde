@@ -20,8 +20,8 @@ public abstract class Piece{
     return blocks;
   }
   public boolean containsBlock(Block b){
-    for (int i = 0;i<blocks.length;i++){
-      if (blocks[i] == b){
+    for (Block block: blocks){
+      if (block == b){
         return true;
       }
     }

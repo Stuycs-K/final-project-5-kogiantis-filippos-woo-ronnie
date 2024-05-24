@@ -7,6 +7,11 @@ public class Block{
     c = col;
     placed = false;
   }
+  public Block(int row, int col, boolean p){
+    r = row;
+    c = col;
+    placed = p;
+  }
   public int getRow(){
     return r;
   }
@@ -17,7 +22,7 @@ public class Block{
   public boolean isPlaced(){
     return placed;
   }
-  public void setPlaced(boolean b){
-    placed = b;
+  public void setPlaced(boolean p){
+    placed = p;
   }
 }

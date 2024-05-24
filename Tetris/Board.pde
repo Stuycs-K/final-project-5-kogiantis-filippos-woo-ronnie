@@ -31,6 +31,7 @@ public class Board{
   public void display(int x,int y, int size){
     fill(0,0,0);
     stroke(255);
+    //display placed blocks
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
         if (grid[r][c] != null){
@@ -42,6 +43,12 @@ public class Board{
         square(x+c*size,y+r*size,size);
       }
     }
+    //display blocks of current piece
+    for (Block b: currentPiece.blocks){
+      fill(0,0,255);
+      square(x+b.getCol()*size,y+b.getRow()*size,size);
+    }
+    
     noFill();
     noStroke();
   }
@@ -71,13 +78,6 @@ public class Board{
     else if(n.equals("T")){
       currentPiece = new T();
     }
-    if (currentPiece != null){
-      for (Block block : currentPiece.blocks){
-        grid[block.getRow()][block.getCol()] = block;
-        grid[block.getRow()][block.getCol()].setPlaced(false);
-      }
-    }
-    //currentPiece.setPlaced(false);
   }
   
   
@@ -94,22 +94,32 @@ public class Board{
   
   */
   public void fall(){
-    for (int r = grid.length-1;r > 0;r--){
-      for (int c = 0;c < grid[0].length;c++){
-        if (grid[r][c] == null && grid[r-1][c]!=null){
-            grid[r][c] = grid[r-1][c];
-            grid[r-1][c] = null;
-        }
+    boolean canFall = true;
+    for (Block b: currentPiece.blocks){
+      if (b.getRow() == grid.length - 1 || grid[b.getRow()+1][b.getCol()] != null){
+        canFall = false;
       }
     }
+    if (canFall){
+      for (int i = 0; i < 4; i++){
+        Block b = currentPiece.blocks[i];
+        currentPiece.blocks[i] = new Block(b.getRow()+1,b.getCol());
+      }  
+    }
+    else{
+      for (int i = 0; i < 4; i++){
+        Block b = currentPiece.blocks[i];
+        grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true);
+      }
+      spawnPiece("T");
+    }
   }
-  public void fallPiece(){
+  /*public void fallPiece(){
     for (int r = grid.length-1;r > 0;r--){
       for (int c = 0;c < grid[0].length;c++){
         if(grid[r][c] != null && (grid[r][c].isPlaced() == false || r == grid.length-1) && grid[r-1][c] != null){
           grid[r-1][c].setPlaced(true);
           currentPiece.setPlaced(true);
-          //System.out.println("isPlaced");
         }
         if (currentPiece.isPlaced() == true){
           if (currentPiece.containsBlock(grid[r-1][c])){
@@ -126,9 +136,7 @@ public class Board{
           currentPiece.setPlaced(true);
           //System.out.println("isPlaced");
         }
-        
-        
       }
     }
-  }
+  }*/
 }
