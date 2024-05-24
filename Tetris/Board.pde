@@ -95,7 +95,11 @@ public class Board{
   this might require us to change from an int[][] grid to a piece[][] or block[][].
   
   */
-  public void fall(){
+  //public void fall(){
+  //}
+  
+  
+  public void fallPiece(){
     boolean canFall = true;
     for (Block b: currentPiece.blocks){
       if (b.getRow() == grid.length - 1 || grid[b.getRow()+1][b.getCol()] != null){
@@ -126,6 +130,29 @@ public class Board{
     }
     return true;
   }
+  public boolean isRowFilled(int r){
+    for (int c = 0; c<grid[0].length;c++){
+      if (grid[r][c] == null){
+        return false;
+      }
+    }
+    return true;
+  }
+  public ArrayList<Integer> whichRowsFilled(){
+    ArrayList<Integer> rows = new ArrayList();
+    for (int r = 0;r<grid.length;r++){
+      if (isRowFilled(r)){
+        rows.add(r);
+      }
+    }
+    return rows;
+  }
+  public void clearRow(int r){
+    for (int c = 0;c<grid[0].length;c++){
+      grid[r][c] = null;
+    }
+  }
+    
   /*public void fallPiece(){
     for (int r = grid.length-1;r > 0;r--){
       for (int c = 0;c < grid[0].length;c++){

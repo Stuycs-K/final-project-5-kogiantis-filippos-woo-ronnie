@@ -14,6 +14,17 @@ void draw() {
 void tick(){
   delay(m); //
   board.fall();
+  ArrayList<Integer> clearedRows;
+  
+  
+  if (board.arePlaced() == true){
+    clearedRows = board.whichRowsFilled();
+    for (int r : clearedRows){
+      clear
+    }
+    
+    board.spawnPiece("I");
+  }
 
 }
 
