@@ -18,14 +18,17 @@ void tick(){
   
   
   if (board.currentPlaced() == true){
+    /*
+    this might work, but we have no way of testing
+    */
     //clearedRows = board.whichRowsFilled();
     //for (int r : clearedRows){
     //  board.clearRow(r);
     //  board.rowFall(r);
     //}
     //clearedRows = null;
-    //board.spawnPiece("I");
-    System.out.println("YES");
+    board.spawnPiece("I");
+    //System.out.println("YES");
   }
 
 }
