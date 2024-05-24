@@ -13,7 +13,7 @@ void draw() {
 
 void tick(){
   delay(m); //
-  board.fall();
+  board.fallPiece();
 }
 
 void keyPressed(){
