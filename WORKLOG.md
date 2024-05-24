@@ -2,15 +2,18 @@
 
 ## Ronnie Woo
 
-### 5/22/24
+### 5/22
 
 made game display
 made piece class
 made i piece class
 added spawning i piece 
 
+### 5/23
 
-
+created block class
+implemented block class within board and piece classes
+fixed spawnPiece and fall
 
 ## Filippos Kogiantis
 
