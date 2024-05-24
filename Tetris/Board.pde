@@ -82,11 +82,13 @@ public class Board{
   
   
   /*
-  void fall()
+  boolean fall()
   
   FUNCTION (as of now):
   if there is an empty space below the block, the piece will fall.
   single time
+  
+  returns if the piece has been placed
   
   PROBLEMS:
   does not have a way of checking if the peice has been placed in a particular spot.
@@ -111,8 +113,18 @@ public class Board{
         Block b = currentPiece.blocks[i];
         grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true);
       }
-      spawnPiece("T");
+      //spawnPiece("T");
     }
+  }
+  public boolean arePlaced(){
+    for (int r = 0;r<grid.length;r++){
+      for (int c = 0;c<grid[0].length;c++){
+        if (grid[r][c].isPlaced() == false){
+          return false;
+        }
+      }
+    }
+    return true;
   }
   /*public void fallPiece(){
     for (int r = grid.length-1;r > 0;r--){

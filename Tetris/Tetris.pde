@@ -7,13 +7,14 @@ void setup(){
   frameRate(2);
 }
 void draw() {
-  board.display(100,100,15);
+  board.display(100,100,(height -200)/20);
   tick();
 }
 
 void tick(){
   delay(m); //
   board.fall();
+
 }
 
 void keyPressed(){
