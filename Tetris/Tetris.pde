@@ -13,17 +13,19 @@ void draw() {
 
 void tick(){
   delay(m); //
-  board.fall();
+  board.fallPiece();
   ArrayList<Integer> clearedRows;
   
   
-  if (board.arePlaced() == true){
-    clearedRows = board.whichRowsFilled();
-    for (int r : clearedRows){
-      clear
-    }
-    
-    board.spawnPiece("I");
+  if (board.currentPlaced() == true){
+    //clearedRows = board.whichRowsFilled();
+    //for (int r : clearedRows){
+    //  board.clearRow(r);
+    //  board.rowFall(r);
+    //}
+    //clearedRows = null;
+    //board.spawnPiece("I");
+    System.out.println("YES");
   }
 
 }

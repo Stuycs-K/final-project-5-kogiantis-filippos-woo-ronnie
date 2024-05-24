@@ -12,7 +12,9 @@ public class Board{
     grid[r][c].setPlaced(b);
   }
   
-  
+  public boolean currentPlaced(){
+    return currentPiece.isPlaced();
+  }
   /*
   void display()
   
@@ -95,8 +97,21 @@ public class Board{
   this might require us to change from an int[][] grid to a piece[][] or block[][].
   
   */
-  //public void fall(){
-  //}
+  
+  
+  
+  
+  public void rowFall(int row){
+    for (int r = row;r>0;r--){
+      for (int c = 0;c<grid[0].length;c++){
+        if (grid[r-1][c] != null && grid[r][c] == null){
+          grid[r][c] = grid[r-1][c];
+          grid[r][c] = new Block(r,c);
+          grid[r-1][c] = null;
+        }
+      }
+    }
+  }
   
   
   public void fallPiece(){
@@ -117,13 +132,21 @@ public class Board{
         Block b = currentPiece.blocks[i];
         grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true);
       }
+      currentPiece.setPlaced(true);
       //spawnPiece("T");
     }
   }
   public boolean arePlaced(){
+    int sum = 0;
     for (int r = 0;r<grid.length;r++){
       for (int c = 0;c<grid[0].length;c++){
-        if (grid[r][c].isPlaced() == false){
+        if (grid[r][c] != null){
+          System.out.println(grid[r][c].isPlaced());
+        }
+        
+        //if the board is empty, there are no placed peices, so it triggers true.
+        // I need a sum to keep track of the amount of peices that are not placed and actual pieces on board.
+        if (grid[r][c] != null && grid[r][c].isPlaced() == false){
           return false;
         }
       }
