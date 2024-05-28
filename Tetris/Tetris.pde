@@ -36,3 +36,13 @@ void tick(){
 void keyPressed(){
   //board.spawnPiece("L");
 }
+
+ArrayList<String> createPieceOrder(){
+  ArrayList<String> pieces = new ArrayList<String>(7);
+  ArrayList<String> choices = new ArrayList<String>(7);
+  choices.add("I");choices.add("L");choices.add("T");
+  for (int i = 0;i<7;i++){
+    pieces.add((int)(Math.random()*7),choices.get(i));
+  }
+  return pieces;
+}
