@@ -67,8 +67,8 @@ ArrayList<String> createPieceOrder(){
   ArrayList<String> choices = new ArrayList<String>(3);
   choices.add("I");choices.add("L");choices.add("T");
   for (int i = 0;i<3;i++){
-    pieces.add((int)(Math.random()*7),choices.get(i));
-    choices.remove(i);
+    pieces.add((int)(Math.random()*pieces.size()),choices.get(i));
+    //choices.remove(i);
   }
   return pieces;
 }
