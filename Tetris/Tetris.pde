@@ -1,11 +1,11 @@
 Board board = new Board();
 ArrayList<String> pieceOrder = createPieceOrder();
-int m = 300; //milli-seconds counting
+int frame = 0;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece("T");
-  frameRate(2);
+  frameRate(60);
 }
 void draw() {
   board.display(100,100,(height -200)/20);
@@ -13,8 +13,9 @@ void draw() {
 }
 
 void tick(){
-  delay(m); //
-  board.fallPiece();
+  if (frame % 20 == 0){
+    board.fall();
+  }
   ArrayList<Integer> clearedRows;
   String currPiece = pieceOrder.get(0);
   pieceOrder.remove(0);
@@ -47,11 +48,16 @@ void tick(){
     
     //System.out.println("YES");
   }
-
+  frame = (frame + 1) % 60;
 }
 
 void keyPressed(){
-  //board.spawnPiece("L");
+  if (keyCode == LEFT){
+    board.moveLeft();
+  }
+  if (keyCode == RIGHT){
+    board.moveRight();
+  }
 }
 
 
