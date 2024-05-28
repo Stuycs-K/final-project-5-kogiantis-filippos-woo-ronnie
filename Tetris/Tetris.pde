@@ -12,7 +12,7 @@ void draw() {
 }
 
 void tick(){
-  if (frame % 30 == 0){
+  if (frame % 20 == 0){
     board.fall();
   }
   ArrayList<Integer> clearedRows;
@@ -35,5 +35,10 @@ void tick(){
 }
 
 void keyPressed(){
-  board.moveLeft();
+  if (keyCode == LEFT){
+    board.moveLeft();
+  }
+  if (keyCode == RIGHT){
+    board.moveRight();
+  }
 }

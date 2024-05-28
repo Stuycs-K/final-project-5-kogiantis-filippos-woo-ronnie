@@ -149,6 +149,20 @@ public class Board{
       }  
     }
   }
+  public void moveRight(){
+    boolean canMove = true;
+    for (Block b: currentPiece.blocks){
+      if (b.getCol() == grid[0].length - 1 || grid[b.getRow()][b.getCol()+1] != null){
+        canMove = false;
+      }
+    }
+    if (canMove){
+      for (int i = 0; i < 4; i++){
+        Block b = currentPiece.blocks[i];
+        currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()+1);
+      }  
+    }
+  }
   public boolean arePlaced(){
     int sum = 0;
     for (int r = 0;r<grid.length;r++){
