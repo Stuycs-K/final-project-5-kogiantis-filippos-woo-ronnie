@@ -1,10 +1,10 @@
 Board board = new Board();
-int m = 300; //milli-seconds counting
+int frame = 0;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece("T");
-  frameRate(2);
+  frameRate(60);
 }
 void draw() {
   board.display(100,100,(height -200)/20);
@@ -12,8 +12,9 @@ void draw() {
 }
 
 void tick(){
-  delay(m); //
-  board.fallPiece();
+  if (frame % 30 == 0){
+    board.fall();
+  }
   ArrayList<Integer> clearedRows;
   
   
@@ -30,9 +31,9 @@ void tick(){
     board.spawnPiece("I");
     //System.out.println("YES");
   }
-
+  frame = (frame + 1) % 60;
 }
 
 void keyPressed(){
-  //board.spawnPiece("L");
+  board.moveLeft();
 }
