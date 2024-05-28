@@ -71,15 +71,7 @@ public class Board{
   public void spawnPiece(String n){
     ////only spawns I pieces
     //currentPiece = new I();
-    if (n.equals("I")){
-      currentPiece = new I();
-    }
-    else if(n.equals("L")){
-      currentPiece = new L();
-    }
-    else if(n.equals("T")){
-      currentPiece = new T();
-    }
+    currentPiece = createPiece(n);
   }
   
   

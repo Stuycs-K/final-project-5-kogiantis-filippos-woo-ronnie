@@ -7,6 +7,7 @@ boolean lost = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
+  //System.out.println(nextPiece == null);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
   frameRate(60);
@@ -80,10 +81,10 @@ void keyPressed(){
 
 
 ArrayList<String> createPieceOrder(){
-  ArrayList<String> pieces = new ArrayList<String>(3);
-  ArrayList<String> choices = new ArrayList<String>(3);
-  choices.add("I");choices.add("L");choices.add("T");
-  for (int i = 0;i<3;i++){
+  ArrayList<String> pieces = new ArrayList<String>(7);
+  ArrayList<String> choices = new ArrayList<String>(7);
+  choices.add("I");choices.add("J");choices.add("L");choices.add("O");choices.add("S");choices.add("T");choices.add("Z");
+  for (int i = 0;i<7;i++){
     pieces.add((int)(Math.random()*pieces.size()),choices.get(i));
     //choices.remove(i);
   }
@@ -99,6 +100,18 @@ Piece createPiece(String s){
   }
   if (s.equals("I")){
     return new I();
+  }
+  if (s.equals("J")){
+    return new J();
+  }
+  if (s.equals("O")){
+    return new O();
+  }
+  if (s.equals("Z")){
+    return new Z();
+  }
+  if (s.equals("S")){
+    return new S();
   }
   return null;
 }
