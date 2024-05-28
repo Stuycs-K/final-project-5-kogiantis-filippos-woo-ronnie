@@ -1,4 +1,5 @@
 Board board = new Board();
+ArrayList<String> pieceOrder = createPieceOrder();
 int m = 300; //milli-seconds counting
 void setup(){
   size(400,400);
@@ -15,6 +16,18 @@ void tick(){
   delay(m); //
   board.fallPiece();
   ArrayList<Integer> clearedRows;
+  String currPiece = pieceOrder.get(0);
+  pieceOrder.remove(0);
+  // so that we can display next peice at any moment
+  if (pieceOrder.size() == 0){
+    pieceOrder = createPieceOrder();
+  }
+  
+  String nextPiece = pieceOrder.get(0);
+  
+  //
+  //
+  //
   
   
   if (board.currentPlaced() == true){
@@ -27,7 +40,11 @@ void tick(){
     //  board.rowFall(r);
     //}
     //clearedRows = null;
-    board.spawnPiece("I");
+    
+    //board.spawnPiece("I");
+    board.spawnPiece(currPiece);
+    //pieceOrder.get
+    
     //System.out.println("YES");
   }
 
@@ -37,12 +54,15 @@ void keyPressed(){
   //board.spawnPiece("L");
 }
 
+
+
 ArrayList<String> createPieceOrder(){
-  ArrayList<String> pieces = new ArrayList<String>(7);
-  ArrayList<String> choices = new ArrayList<String>(7);
+  ArrayList<String> pieces = new ArrayList<String>(3);
+  ArrayList<String> choices = new ArrayList<String>(3);
   choices.add("I");choices.add("L");choices.add("T");
-  for (int i = 0;i<7;i++){
+  for (int i = 0;i<3;i++){
     pieces.add((int)(Math.random()*7),choices.get(i));
+    choices.remove(i);
   }
   return pieces;
 }
