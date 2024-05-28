@@ -16,6 +16,10 @@ public abstract class Piece{
   public Block[] getBlocks(){
     return blocks;
   }
+  public int getColor(){
+    return col;
+  }
+  
   public boolean containsBlock(Block b){
     for (Block block: blocks){
       if (block == b){
