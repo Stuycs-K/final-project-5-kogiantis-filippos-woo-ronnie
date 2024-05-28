@@ -17,3 +17,11 @@ void displayNextPiece(int x,int y,int size, Piece P){
     }
   }
 }
+
+void displayScore(int score){
+  fill(0);
+  stroke(255);
+  rect(100+height,100,200,200);
+  fill(255);
+  text("Score: " + score,100+height,100,200,200);
+}

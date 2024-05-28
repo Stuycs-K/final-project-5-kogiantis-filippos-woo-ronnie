@@ -1,7 +1,9 @@
 Board board = new Board();
 ArrayList<String> pieceOrder = createPieceOrder();
 String nextPiece = pieceOrder.get(0);
+int score = 0;
 int frame = 0;
+boolean lost = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
@@ -11,8 +13,11 @@ void setup(){
 }
 void draw() {
   board.display(100,100,(height -200)/20);
-  tick();
+  if (!lost){
+    tick();
+  }
   displayNextPiece(0,0,10,createPiece(nextPiece));
+  displayScore(score);
 }
 
 void tick(){
@@ -27,20 +32,39 @@ void tick(){
   
   if (board.currentPlaced() == true){
     clearedRows = board.whichRowsFilled();
+    
+    //update score
+    if (clearedRows.size() == 1){
+      score += 100;
+    }
+    if (clearedRows.size() == 2){
+      score += 300;
+    }
+    if (clearedRows.size() == 3){
+      score += 500;
+    }
+    if (clearedRows.size() == 4){
+      score += 800;
+    }
+    
+    
     for (int r : clearedRows){
       board.clearRow(r);
       board.rowFall(r);
     }
     clearedRows = null;
+    if (board.lost()){
+      //System.out.println("LOST");
+      lost = true;
+    }
     board.spawnPiece(nextPiece);
+    
     pieceOrder.remove(0);
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
     }
     
-    if (board.lost()){
-      System.out.println("LOST");
-    }
+    
   }
   frame = (frame + 1) % 60;
 }
