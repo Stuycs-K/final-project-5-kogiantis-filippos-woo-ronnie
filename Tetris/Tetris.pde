@@ -16,7 +16,7 @@ void draw() {
 }
 
 void tick(){
-  if (frame % 10 == 0){
+  if (frame % 5 == 0){
     board.fall();
   }
   ArrayList<Integer> clearedRows;
@@ -36,6 +36,10 @@ void tick(){
     pieceOrder.remove(0);
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
+    }
+    
+    if (board.lost()){
+      System.out.println("LOST");
     }
   }
   frame = (frame + 1) % 60;

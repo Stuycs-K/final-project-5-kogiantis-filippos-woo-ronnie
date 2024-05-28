@@ -202,4 +202,13 @@ public class Board{
       grid[r][c] = null;
     }
   }
+  
+  public boolean lost(){
+    for (int c = 0;c<grid[0].length;c++){
+      if (grid[0][c] != null){
+        return true;
+      }
+    }
+    return false;
+  }
 }
