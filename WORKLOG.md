@@ -15,6 +15,8 @@ created block class
 implemented block class within board and piece classes
 fixed spawnPiece and fall
 
+### 5/24
+created moveLeft() and moveRight()
 ## Filippos Kogiantis
 
 ### date 
