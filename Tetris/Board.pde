@@ -11,25 +11,9 @@ public class Board{
   public void setBlock(int r, int c, boolean b){
     grid[r][c].setPlaced(b);
   }
-  
   public boolean currentPlaced(){
     return currentPiece.isPlaced();
   }
-  /*
-  void display()
-  
-  INPUTS:
-  int (x,y): top left coordinates of grid [procCor]
-  int size: the size of each grid (size == side length of grid box).
-  
-  FUNCTION (as of now):
-  
-  displays the grid itself, and the pieces on the grid 
-  (based off of the int value in each box.
-  
-  PROBLEMS:
-  I am thinking maybe we sould add inputs to where the grid will display, and what size. otherwise, it is fine.
-  */
   public void display(int x,int y, int size){
     fill(0,0,0);
     stroke(255);

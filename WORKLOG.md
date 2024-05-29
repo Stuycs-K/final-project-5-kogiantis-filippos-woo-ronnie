@@ -19,6 +19,7 @@ fixed spawnPiece and fall
 created moveLeft() and moveRight()
 changed frameRate implementation
 created hardDrop() and soft dropping
+
 ## Filippos Kogiantis
 
 ### date 
