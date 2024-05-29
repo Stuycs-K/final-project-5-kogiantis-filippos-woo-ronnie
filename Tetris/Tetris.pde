@@ -16,7 +16,7 @@ void draw() {
   if (!lost){
     tick();
   }
-  displayNextPiece(0,0,10,createPiece(nextPiece));
+  displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
 }
 

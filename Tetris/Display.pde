@@ -16,6 +16,9 @@ void displayNextPiece(int x,int y,int size, Piece P){
       }
     }
   }
+  fill(0);
+  textSize(20);
+  text("Next Piece", 500, 200);
 }
 
 void displayScore(int score){
