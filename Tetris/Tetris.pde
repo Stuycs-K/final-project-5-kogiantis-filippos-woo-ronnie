@@ -12,13 +12,17 @@ void setup(){
   frameRate(60);
 }
 void draw() {
-  board.display(100,100,(height -200)/20);
-  if (!lost){
-    tick();
-  }
-  displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
-  displayScore(score);
+  //board.display(100,100,(height -200)/20);
+  //if (!lost){
+  //  tick();
+  //}
+  //displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
+  //displayScore(score);
 }
+
+//void test(){
+  
+//}
 
 void tick(){
   if (frame % 10 == 0){
@@ -76,8 +80,11 @@ void keyPressed(){
   if (keyCode == RIGHT){
     board.moveRight();
   }
-  if (keyCode == UP){
+  if (key==' '){
     board.hardDrop();
+  }
+  if (keyCode == UP){
+    board.rotateClock();
   }
   if (keyCode == DOWN){
     board.fall();

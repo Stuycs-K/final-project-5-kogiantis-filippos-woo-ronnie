@@ -1,6 +1,7 @@
 public abstract class Piece{
   public String name;
   public Block[] blocks;
+  public int[][] grid;
   public boolean placed;
   public int col;
   
@@ -32,14 +33,6 @@ public abstract class Piece{
     return name;
   }
   
-  public Block[][] rotateGridRight(Block[][] b){
-    Block[][] b_new = new Block[b.length][b[0].length];
-    for (int r = 0;r<b.length;r++){
-      for (int c = 0;c < b[0].length;c++){
-      }
-    }
-    return b_new;
-  }
   //public void rotateRightCorners(Block[][] b){
   //  Block temp = b[0][0];
   //  int r = b.length;
@@ -49,16 +42,22 @@ public abstract class Piece{
   //  b[r][c] = b[0][c];
   //  b[0][c] = temp;
   //}
-  public void rotateRightGrid(Block[][] b){
-    int r = b.length;
-    int c = b[0].length;
-    int shift = r-2;
+  public void rotateGridClock(int[][] grid){
+    int r = grid.length-1;
+    int c = grid[0].length-1;
+    int shift = r-1;
     for (int s = 0;s<=shift;s++){
-      Block temp = b[0+s][0];
-      b[0+s][0] = b[r][0+s];
-      b[r][0+s] = b[r][c-s];
-      b[r][c-s] = b[0+s][c];
-      b[0+s][c] = temp;
+      int temp = grid[0+s][0];
+      grid[0+s][0] = grid[r][0+s];
+      grid[r][0+s] = grid[r][c-s];
+      grid[r][c-s] = grid[0+s][c];
+      grid[0+s][c] = temp;
+    }
+    for (int r1 = 0;r1<3;r1++){
+      for (int c1 = 0;c1<3;c1++){
+        System.out.print(grid[r1][c1]);
+      }
+      System.out.println(",");
     }
   }
 }
