@@ -194,14 +194,11 @@ public class Board{
   }
   
   public void rotateClock(){
-    currentPiece = new J();
-    currentPiece.rotateGridClock(currentPiece.grid);
-    currentPiece.rotateGridClock(currentPiece.grid);
-    //for (int r = 0;r<3;r++){
-    //  for (int c = 0;c<3;c++){
-    //    System.out.print(currentPiece.grid[r][c]);
-    //  }
-    //  System.out.println(",");
-    //}
+    //currentPiece = new J();
+    //currentPiece.rotateGridClock();
+    //currentPiece.rotateGridClock();
+    displayGrid(currentPiece.grid);
+    currentPiece.rotateClock();
+    //currentPiece.printGrid();
   }
 }

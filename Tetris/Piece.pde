@@ -42,22 +42,32 @@ public abstract class Piece{
   //  b[r][c] = b[0][c];
   //  b[0][c] = temp;
   //}
-  public void rotateGridClock(int[][] grid){
+  void rotateClock(){
+    if ("JLSTZI".contains(name)){
+      rotateGridClock();
+    }
+  }
+  
+  public void rotateGridClock(){
     int r = grid.length-1;
     int c = grid[0].length-1;
     int shift = r-1;
+    
     for (int s = 0;s<=shift;s++){
-      int temp = grid[0+s][0];
+      int temp = grid[0][c-s];
+      grid[0][c-s] = grid[0+s][0];
       grid[0+s][0] = grid[r][0+s];
-      grid[r][0+s] = grid[r][c-s];
-      grid[r][c-s] = grid[0+s][c];
-      grid[0+s][c] = temp;
+      grid[r][0+s] = grid[r-s][c];
+      grid[r-s][c] = temp;
     }
-    for (int r1 = 0;r1<3;r1++){
-      for (int c1 = 0;c1<3;c1++){
+  }
+  public void printGrid(){
+    for (int r1 = 0;r1<grid.length;r1++){
+      for (int c1 = 0;c1<grid[0].length;c1++){
         System.out.print(grid[r1][c1]);
       }
       System.out.println(",");
     }
+    System.out.println("___");
   }
 }

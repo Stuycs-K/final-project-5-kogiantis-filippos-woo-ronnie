@@ -9,9 +9,14 @@ void setup(){
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
+  //board.currentPiece = new L();
+  board.currentPiece.printGrid();
+  board.currentPiece.rotateGridClock();
+  board.currentPiece.printGrid();
   frameRate(60);
 }
 void draw() {
+  displayGrid(board.currentPiece.grid);
   //board.display(100,100,(height -200)/20);
   //if (!lost){
   //  tick();

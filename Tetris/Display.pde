@@ -28,3 +28,17 @@ void displayScore(int score){
   fill(255);
   text("Score: " + score,100+height,100,200,200);
 }
+
+void displayGrid(int[][] grid){
+  for (int r = 0;r<grid.length;r++){
+    for (int c = 0;c<grid[0].length;c++){
+      if (grid[r][c] == 0){
+        fill(0);
+      }
+      else{
+        fill(255);
+      }
+      square(100+c*100,100+r*100,100);
+    }
+  }
+}
