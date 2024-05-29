@@ -22,7 +22,7 @@ void draw() {
 }
 
 void tick(){
-  if (frame % 5 == 0){
+  if (frame % 20 == 0){
     board.fall();
   }
   ArrayList<Integer> clearedRows;
