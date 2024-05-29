@@ -7,7 +7,6 @@ boolean lost = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  //System.out.println(nextPiece == null);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
   frameRate(60);
@@ -86,7 +85,7 @@ void keyPressed(){
 }
 
 
-ArrayList<String> createPieceOrder(){
+  ArrayList<String> createPieceOrder(){
   ArrayList<String> pieces = new ArrayList<String>(7);
   ArrayList<String> choices = new ArrayList<String>(7);
   choices.add("I");choices.add("J");choices.add("L");choices.add("O");choices.add("S");choices.add("T");choices.add("Z");
