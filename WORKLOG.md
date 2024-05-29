@@ -15,8 +15,11 @@ created block class
 implemented block class within board and piece classes
 fixed spawnPiece and fall
 
-### 5/24
+### 5/28
 created moveLeft() and moveRight()
+changed frameRate implementation
+created hardDrop() and soft dropping
+
 ## Filippos Kogiantis
 
 ### date 

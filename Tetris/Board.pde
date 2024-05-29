@@ -71,15 +71,7 @@ public class Board{
   public void spawnPiece(String n){
     ////only spawns I pieces
     //currentPiece = new I();
-    if (n.equals("I")){
-      currentPiece = new I();
-    }
-    else if(n.equals("L")){
-      currentPiece = new L();
-    }
-    else if(n.equals("T")){
-      currentPiece = new T();
-    }
+    currentPiece = createPiece(n);
   }
   
   
@@ -133,6 +125,11 @@ public class Board{
         grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true);
       }
       currentPiece.setPlaced(true);
+    }
+  }
+  public void hardDrop(){
+    while (!currentPiece.isPlaced()){
+      fall();
     }
   }
   public void moveLeft(){
@@ -201,5 +198,14 @@ public class Board{
     for (int c = 0;c<grid[0].length;c++){
       grid[r][c] = null;
     }
+  }
+  
+  public boolean lost(){
+    for (int c = 0;c<grid[0].length;c++){
+      if (grid[0][c] != null){
+        return true;
+      }
+    }
+    return false;
   }
 }
