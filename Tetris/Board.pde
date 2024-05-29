@@ -193,12 +193,21 @@ public class Board{
     return false;
   }
   
+  
   public void rotateClock(){
     //currentPiece = new J();
     //currentPiece.rotateGridClock();
     //currentPiece.rotateGridClock();
-    displayGrid(currentPiece.grid);
-    currentPiece.rotateClock();
+    //displayGrid(currentPiece.grid);
+    currentPiece.rotateGridClock();
+    //currentPiece.printGrid();
+  }
+  public void rotateAnti(){
+    //currentPiece = new J();
+    //currentPiece.rotateGridClock();
+    //currentPiece.rotateGridClock();
+    //displayGrid(currentPiece.grid);
+    currentPiece.rotateGridAnti();
     //currentPiece.printGrid();
   }
 }

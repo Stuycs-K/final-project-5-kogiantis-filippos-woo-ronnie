@@ -9,10 +9,7 @@ void setup(){
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
-  //board.currentPiece = new L();
-  board.currentPiece.printGrid();
-  board.currentPiece.rotateGridClock();
-  board.currentPiece.printGrid();
+  
   frameRate(60);
 }
 void draw() {
@@ -92,7 +89,7 @@ void keyPressed(){
     board.rotateClock();
   }
   if (keyCode == DOWN){
-    board.fall();
+    board.rotateAnti();
   }
 }
 
