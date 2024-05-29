@@ -80,6 +80,9 @@ void keyPressed(){
   if (keyCode == UP){
     board.hardDrop();
   }
+  if (keyCode == DOWN){
+    board.fall();
+  }
 }
 
 
