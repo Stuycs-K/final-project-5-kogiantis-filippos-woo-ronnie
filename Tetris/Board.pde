@@ -127,6 +127,11 @@ public class Board{
       currentPiece.setPlaced(true);
     }
   }
+  public void hardDrop(){
+    while (!currentPiece.isPlaced()){
+      fall();
+    }
+  }
   public void moveLeft(){
     boolean canMove = true;
     for (Block b: currentPiece.blocks){
