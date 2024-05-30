@@ -7,7 +7,7 @@ void displayNextPiece(int x,int y,int size, Piece P){
     }
   }
   for (Block b: P.blocks){
-        fill(0,0,255);
+        fill(P.getColor());
         square(x+(b.getCol()-3)*size,y+b.getRow()*size,size);
       }
   fill(0);

@@ -83,8 +83,8 @@ public class Board{
     for (int r = row;r>0;r--){
       for (int c = 0;c<grid[0].length;c++){
         if (grid[r-1][c] != null && grid[r][c] == null){
-          grid[r][c] = grid[r-1][c];
-          grid[r][c] = new Block(r,c);
+          //grid[r][c] = grid[r-1][c];
+          grid[r][c] = new Block(r,c,false,grid[r-1][c].getColor());
           grid[r-1][c] = null;
         }
       }
