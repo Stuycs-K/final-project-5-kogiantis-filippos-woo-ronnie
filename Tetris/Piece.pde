@@ -66,19 +66,39 @@ public abstract class Piece{
   //    grid[0+s][0] = temp;
   //  }
   //}
+  //public void rotateGridClock(){
+  //  int r = grid.length-1;
+  //  int c = grid[0].length-1;
+  //  int shift = r-1;
+    
+  //  for (int s = 0;s<=shift;s++){
+  //    int temp = grid[0][c-s];
+  //    grid[0][c-s] = grid[0+s][0];
+  //    grid[0+s][0] = grid[r][0+s];
+  //    grid[r][0+s] = grid[r-s][c];
+  //    grid[r-s][c] = temp;
+  //  }
+  //}
+  
+  
   public void rotateGridClock(){
     int r = grid.length-1;
     int c = grid[0].length-1;
-    int shift = r-1;
-    
-    for (int s = 0;s<=shift;s++){
-      int temp = grid[0][c-s];
-      grid[0][c-s] = grid[0+s][0];
-      grid[0+s][0] = grid[r][0+s];
-      grid[r][0+s] = grid[r-s][c];
-      grid[r-s][c] = temp;
+    //int shift = r-1;
+    for (int l = 0;l<=(r+1)/2 - 1;l++){
+      //System.out.println("YES");
+      int shift = r-1-2*l;
+      //System.out.println(shift);
+      for (int s = 0;s<=shift;s++){
+        int temp = grid[l][c-l-s];
+        grid[l][c-l-s] = grid[l+s][l];
+        grid[l+s][l] = grid[r-l][l+s];
+        grid[r-l][l+s] = grid[r-l-s][c-l];
+        grid[r-l-s][c-l] = temp;
+      }
     }
   }
+  
   public void rotateGridAnti(){
     int r = grid.length-1;
     int c = grid[0].length-1;
@@ -87,7 +107,7 @@ public abstract class Piece{
     for (int l = 0;l<=(r+1)/2 - 1;l++){
       //System.out.println("YES");
       int shift = r-1-2*l;
-      System.out.println(shift);
+      //System.out.println(shift);
       for (int s = 0;s<=shift;s++){
         int temp = grid[l][c-l-s];
         grid[l][c-l-s] = grid[r-l-s][c-l];
