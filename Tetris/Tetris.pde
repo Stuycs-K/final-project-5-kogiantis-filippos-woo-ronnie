@@ -7,8 +7,8 @@ boolean lost = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  //board.spawnPiece(nextPiece);
-  //pieceOrder.remove(0);
+  board.spawnPiece(nextPiece);
+  pieceOrder.remove(0);
   board.currentPiece = new I();
   
   frameRate(60);
