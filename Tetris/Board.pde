@@ -1,6 +1,7 @@
 public class Board{
   private Block[][] grid;
   private Piece currentPiece;
+  private int[] topleft = new int[] {0,3};
   
   public Board(){
     grid = new Block[20][10];
@@ -101,7 +102,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow()+1,b.getCol());
-      }  
+      }
+      topleft[0] += 1;
     }
     else{
       for (int i = 0; i < 4; i++){
@@ -127,7 +129,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()-1);
-      }  
+      }
+      topleft[1] -= 1;
     }
   }
   public void moveRight(){
@@ -141,7 +144,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()+1);
-      }  
+      }
+      topleft[1] += 1;
     }
   }
   public boolean arePlaced(){
@@ -208,6 +212,20 @@ public class Board{
     //currentPiece.rotateGridClock();
     //displayGrid(currentPiece.grid);
     currentPiece.rotateGridAnti();
+    int counter = 0;
+    Block[] b = currentPiece.getBlocks();
+    for (int r = 0;r<currentPiece.grid.length;r++){
+      for (int c = 0;c<currentPiece.grid[0].length;c++){
+        if (currentPiece.grid[r][c] == 1){
+          currentPiece.blocks[counter] = new Block(topleft[0] + r,topleft[1] + c);
+          counter += 1;
+        }
+      }
+    }
+    
+    
     //currentPiece.printGrid();
   }
+  
+  //public boolean validMove
 }

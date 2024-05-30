@@ -13,8 +13,8 @@ void setup(){
   frameRate(60);
 }
 void draw() {
-  displayGrid(board.currentPiece.grid);
-  //board.display(100,100,(height -200)/20);
+  //displayGrid(board.currentPiece.grid);
+  board.display(100,100,(height -200)/20);
   //if (!lost){
   //  tick();
   //}
