@@ -4,6 +4,7 @@ String nextPiece = pieceOrder.get(0);
 int score = 0;
 int frame = 0;
 boolean lost = false;
+boolean pause = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
@@ -14,8 +15,10 @@ void setup(){
 }
 void draw() {
   board.display(100,100,(height -200)/20);
-  if (!lost){
-    tick();
+  if (!pause){
+    if (!lost){
+      tick();
+    }
   }
   displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
