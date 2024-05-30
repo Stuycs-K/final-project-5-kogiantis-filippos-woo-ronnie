@@ -207,14 +207,35 @@ public class Board{
     //displayGrid(currentPiece.grid);
     currentPiece.rotateGridClock();
     int counter = 0;
-    Block[] b = currentPiece.getBlocks();
-    for (int r = 0;r<currentPiece.grid.length;r++){
-      for (int c = 0;c<currentPiece.grid[0].length;c++){
-        if (currentPiece.grid[r][c] == 1){
-          b[counter] = new Block(topleft[0] + r,topleft[1] + c);
-          counter += 1;
+    
+    boolean canRotate = true;
+    if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
+       && topleft[0] >= 0 && topleft[1] >= 0)){
+      canRotate = false;
+    }
+    else{
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1 && grid[topleft[0] + r][topleft[1] + c] != null){
+            canRotate = false;
+          }
         }
       }
+    }
+    
+    if (canRotate){
+      Block[] b = currentPiece.getBlocks();
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1){
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c);
+            counter += 1;
+          }
+        }
+      }
+    }
+    else{
+      currentPiece.rotateGridAnti();
     }
     //currentPiece.printGrid();
   }
@@ -225,14 +246,39 @@ public class Board{
     //displayGrid(currentPiece.grid);
     currentPiece.rotateGridAnti();
     int counter = 0;
-    Block[] b = currentPiece.getBlocks();
-    for (int r = 0;r<currentPiece.grid.length;r++){
-      for (int c = 0;c<currentPiece.grid[0].length;c++){
-        if (currentPiece.grid[r][c] == 1){
-          b[counter] = new Block(topleft[0] + r,topleft[1] + c);
-          counter += 1;
+    
+    boolean canRotate = true;
+    
+    if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
+       && topleft[0] >= 0 && topleft[1] >= 0)){
+      canRotate = false;
+    }
+    else{
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1 && grid[topleft[0] + r][topleft[1] + c] != null){
+            canRotate = false;
+          }
         }
       }
+    }
+    //if (!(currentPiece.grid.length + topleft[0] -1 <= grid.length && currentPiece.grid[0].length + topleft[1] -1 <= grid[1].length
+    //   && topleft[0] >= 0 && topleft[1] >= 0)){
+    //  canRotate = false;
+    //}
+    if (canRotate){
+      Block[] b = currentPiece.getBlocks();
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1){
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c);
+            counter += 1;
+          }
+        }
+      }
+    }
+    else{
+      currentPiece.rotateGridAnti();
     }
     
     

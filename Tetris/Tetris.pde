@@ -9,7 +9,7 @@ void setup(){
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
-  board.currentPiece = new I();
+  //board.currentPiece = new I();
   
   frameRate(60);
 }
@@ -29,7 +29,7 @@ void draw() {
 //}
 
 void tick(){
-  if (frame % 10 == 0){
+  if (frame % 30 == 0){
     board.fall();
   }
   ArrayList<Integer> clearedRows;
