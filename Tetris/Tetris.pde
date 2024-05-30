@@ -8,6 +8,7 @@ void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
+  displayResetButton();
   pieceOrder.remove(0);
   frameRate(60);
 }
