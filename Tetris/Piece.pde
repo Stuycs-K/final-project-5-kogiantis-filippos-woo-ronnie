@@ -82,13 +82,16 @@ public abstract class Piece{
   public void rotateGridAnti(){
     int r = grid.length-1;
     int c = grid[0].length-1;
-    int shift = r-1;
-    for (int s = 0;s<=shift;s++){
-      int temp = grid[0][c-s];
-      grid[0][c-s] = grid[r-s][c];
-      grid[r-s][c] = grid[r][0+s];
-      grid[r][0+s] = grid[0+s][0];
-      grid[0+s][0] = temp;
+    //int shift = r-1;
+    for (int l = 0;l<(r+1)/2 - 1;l++){
+      int shift = r-1-l;
+      for (int s = 0;s<=shift;s++){
+        int temp = grid[l][c-l-s];
+        grid[l][c-l-s] = grid[r-l-s][c-l];
+        grid[r-l-s][c-l] = grid[r-l][l+s];
+        grid[r-l][l+s] = grid[l+s][l];
+        grid[l+s][l] = temp;
+      }
     }
   }
   public void printGrid(){

@@ -7,20 +7,21 @@ boolean lost = false;
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
-  board.spawnPiece(nextPiece);
-  pieceOrder.remove(0);
+  //board.spawnPiece(nextPiece);
+  //pieceOrder.remove(0);
+  board.currentPiece = new I();
   
   frameRate(60);
 }
 void draw() {
-  System.out.println(board.topleft[0] + ", " + board.topleft[1]);
-  //displayGrid(board.currentPiece.grid);
-  board.display(100,100,(height -200)/20);
-  if (!lost){
-    tick();
-  }
-  displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
-  displayScore(score);
+  //System.out.println(board.topleft[0] + ", " + board.topleft[1]);
+  displayGrid(board.currentPiece.grid);
+  //board.display(100,100,(height -200)/20);
+  //if (!lost){
+  //  tick();
+  //}
+  //displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
+  //displayScore(score);
 }
 
 //void test(){
