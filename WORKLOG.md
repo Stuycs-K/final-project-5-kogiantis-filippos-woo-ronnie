@@ -20,6 +20,11 @@ created moveLeft() and moveRight()
 changed frameRate implementation
 created hardDrop() and soft dropping
 
+### 5/29
+added text for game display
+cleaned up display
+set default north orientation for all pieces
+
 ## Filippos Kogiantis
 
 ### date 
