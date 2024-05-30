@@ -1,7 +1,7 @@
 public class Board{
   private Block[][] grid;
   private Piece currentPiece;
-  private int[] topleft = new int[] {0,3};
+  public int[] topleft = new int[] {0,3};
   
   public Board(){
     grid = new Block[20][10];
@@ -57,6 +57,8 @@ public class Board{
     ////only spawns I pieces
     //currentPiece = new I();
     currentPiece = createPiece(n);
+    topleft[0] = 0;
+    topleft[1] = 3;
   }
   
   
@@ -204,6 +206,16 @@ public class Board{
     //currentPiece.rotateGridClock();
     //displayGrid(currentPiece.grid);
     currentPiece.rotateGridClock();
+    int counter = 0;
+    Block[] b = currentPiece.getBlocks();
+    for (int r = 0;r<currentPiece.grid.length;r++){
+      for (int c = 0;c<currentPiece.grid[0].length;c++){
+        if (currentPiece.grid[r][c] == 1){
+          b[counter] = new Block(topleft[0] + r,topleft[1] + c);
+          counter += 1;
+        }
+      }
+    }
     //currentPiece.printGrid();
   }
   public void rotateAnti(){
@@ -217,7 +229,7 @@ public class Board{
     for (int r = 0;r<currentPiece.grid.length;r++){
       for (int c = 0;c<currentPiece.grid[0].length;c++){
         if (currentPiece.grid[r][c] == 1){
-          currentPiece.blocks[counter] = new Block(topleft[0] + r,topleft[1] + c);
+          b[counter] = new Block(topleft[0] + r,topleft[1] + c);
           counter += 1;
         }
       }

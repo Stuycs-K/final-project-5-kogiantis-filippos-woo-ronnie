@@ -13,13 +13,14 @@ void setup(){
   frameRate(60);
 }
 void draw() {
+  System.out.println(board.topleft[0] + ", " + board.topleft[1]);
   //displayGrid(board.currentPiece.grid);
   board.display(100,100,(height -200)/20);
-  //if (!lost){
-  //  tick();
-  //}
-  //displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
-  //displayScore(score);
+  if (!lost){
+    tick();
+  }
+  displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
+  displayScore(score);
 }
 
 //void test(){
