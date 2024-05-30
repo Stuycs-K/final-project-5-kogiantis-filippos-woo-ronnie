@@ -3,6 +3,7 @@ public class I extends Piece{
     super();
     name = "I";
     blocks = new Block[] {new Block(0,3),new Block(0,4),new Block(0,5),new Block(0,6)};
-    col = 1;
+    COLOR = color(0, 255, 255);
+    super.changeColor();
   }
 }

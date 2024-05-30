@@ -2,7 +2,7 @@ public abstract class Piece{
   public String name;
   public Block[] blocks;
   public boolean placed;
-  public int col;
+  public color COLOR;
   
   public Piece(){
     placed = false;
@@ -17,7 +17,7 @@ public abstract class Piece{
     return blocks;
   }
   public int getColor(){
-    return col;
+    return COLOR;
   }
   
   public boolean containsBlock(Block b){
@@ -59,6 +59,12 @@ public abstract class Piece{
       b[r][0+s] = b[r][c-s];
       b[r][c-s] = b[0+s][c];
       b[0+s][c] = temp;
+    }
+  }
+  
+  public void changeColor(){
+    for (int i = 0;i<blocks.length;i++){
+      blocks[i].setColor(COLOR);
     }
   }
 }

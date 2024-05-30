@@ -22,6 +22,10 @@ void draw() {
   }
   displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
+  //Block b = new Block(0,0);
+  ////System.out.println(b.COLOR);
+  //fill(b.COLOR);
+  //square(100,100,100);
 }
 
 void tick(){
