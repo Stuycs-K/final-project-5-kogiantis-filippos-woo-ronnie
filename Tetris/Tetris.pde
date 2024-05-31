@@ -5,7 +5,9 @@ int score = 0;
 int frame = 0;
 boolean lost = false;
 boolean pause = false;
-Button resetButton = new Button(550, 400, 100, 50);
+Button resetButton = new Button(550, 400, 100, 50, "reset");
+Button pauseButton = new Button(550,500,100,50,"Pause");
+
 
 void setup(){
   size(400,400);
@@ -16,6 +18,10 @@ void setup(){
 }
 void draw() {
   board.display(100,100,(height -200)/20);
+  
+  
+  
+  
   if (!pause){
     if (!lost){
       tick();
@@ -23,7 +29,9 @@ void draw() {
   }
   displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
+  
   displayResetButton(resetButton);
+  pauseButton.display();
 }
 
 void tick(){
@@ -92,6 +100,9 @@ void keyPressed(){
   void mouseClicked(){
     if (resetButton.overButton()){
       reset();
+    }
+    if (pauseButton.overButton()){
+      pause = !pause;
     }
   }
 

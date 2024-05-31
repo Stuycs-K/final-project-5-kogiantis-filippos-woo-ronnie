@@ -2,18 +2,32 @@ public class Button{
   int x, y, buttonWidth, buttonHeight;
   color buttonColor, buttonHighlight;
   boolean overButton = false;
+  boolean hover;
+  String name;
   
-  public Button(int x, int y, int w, int h){
+  public Button(int x, int y, int w, int h,String n){
     this.x=x;
     this.y=y;
     buttonWidth = w;
     buttonHeight = h;
+    hover = false;
+    buttonColor = color(100);
+    buttonHighlight = color(200);
+    name = n;
   }
   void display(){
-    fill(150);
+    if (overButton()){
+      fill(buttonHighlight);
+    }
+    else{
+      fill(buttonColor);
+    }
     stroke(255);
     rect(x, y, buttonWidth, buttonHeight);
     fill(0);
+    text(name,x,y,buttonWidth, buttonHeight);
+    //fill(0);
+    
   }
   boolean overButton(){
     if (mouseX >= x && mouseX <= x+buttonWidth && mouseY >= y && mouseY <= y+buttonHeight){
