@@ -1,18 +1,27 @@
 public class Button{
-  int x, y;
-  int size;
+  int x, y, buttonWidth, buttonHeight;
   color buttonColor, buttonHighlight;
   boolean overButton = false;
   
+  public Button(int x, int y, int w, int h){
+    this.x=x;
+    this.y=y;
+    buttonWidth = w;
+    buttonHeight = h;
+  }
   void display(){
-    //update(mouseX, mouseY);
-    //if (rectOver) {
-    //  fill(51);
-    //} else {
-    //  fill(0);
-    //}
+    fill(150);
     stroke(255);
-    //rect(width/2-buttonSize-10, height/2-buttonSize/2, buttonSize, buttonSize);
+    rect(x, y, buttonWidth, buttonHeight);
+    fill(0);
+  }
+  boolean overButton(){
+    if (mouseX >= x && mouseX <= x+buttonWidth && mouseY >= y && mouseY <= y+buttonHeight){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }
 
@@ -22,11 +31,8 @@ void reset(){
   nextPiece = pieceOrder.get(0);
   score = 0;
   lost = false;
-  delay(2000);
   board.spawnPiece(nextPiece);
-  displayResetButton();
   pieceOrder.remove(0);
-  frameRate(60);
 }
 void pause(){
   pause = !pause;

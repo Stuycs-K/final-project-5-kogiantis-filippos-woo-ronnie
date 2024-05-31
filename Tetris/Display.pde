@@ -18,7 +18,7 @@ void displayScore(int score){
   fill(0);
   text("Score: " + score,210+(height -200)/2,210+(height -200)/5,200,200);
 }
-void displayResetButton(){
-  Button resetButton = new Button();
-  resetButton.display();
+void displayResetButton(Button button){
+  button.display();
+  text("Reset",220+(height -200)/2,280+(height -200)/5,200,200);
 }

@@ -5,11 +5,12 @@ int score = 0;
 int frame = 0;
 boolean lost = false;
 boolean pause = false;
+Button resetButton = new Button(550, 400, 100, 50);
+
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
-  displayResetButton();
   pieceOrder.remove(0);
   frameRate(60);
 }
@@ -22,10 +23,7 @@ void draw() {
   }
   displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
-  //Block b = new Block(0,0);
-  ////System.out.println(b.COLOR);
-  //fill(b.COLOR);
-  //square(100,100,100);
+  displayResetButton(resetButton);
 }
 
 void tick(){
@@ -91,6 +89,11 @@ void keyPressed(){
     board.fall();
   }
 }
+  void mouseClicked(){
+    if (resetButton.overButton()){
+      reset();
+    }
+  }
 
 
   ArrayList<String> createPieceOrder(){
