@@ -3,6 +3,8 @@ ArrayList<String> pieceOrder = createPieceOrder();
 String nextPiece = pieceOrder.get(0);
 int score = 0;
 int frame = 0;
+int frameDelay = 0;
+boolean keyHeld = false;
 boolean lost = false;
 boolean pause = false;
 Button resetButton = new Button(550, 400, 100, 50);
@@ -24,10 +26,53 @@ void draw() {
   displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
   displayResetButton(resetButton);
+  if(keyPressed){
+    if (keyHeld && frame % 3 == 0){
+      if (keyCode == LEFT){
+        board.moveLeft();
+      }
+      if (keyCode == RIGHT){
+        board.moveRight();
+      }
+      if (keyCode == UP){
+        board.hardDrop();
+      }
+      if (keyCode == DOWN){
+        board.fall();
+      }
+    }
+    if (frameDelay == -1){
+      frameDelay = 15;
+      if (keyCode == LEFT){
+        board.moveLeft();
+      }
+      if (keyCode == RIGHT){
+        board.moveRight();
+      }
+      if (keyCode == UP){
+        board.hardDrop();
+      }
+      if (keyCode == DOWN){
+        board.fall();
+      }
+    }
+    else {
+      if (frameDelay > 0){
+        frameDelay--;
+      }
+      else{
+        keyHeld = true;
+      }
+    }
+  }
+  else{
+    frameDelay = -1;
+    keyHeld = false;
+  }
 }
 
 void tick(){
-  if (frame % 10 == 0){
+  if (frame % 30 == 0){
     board.fall();
   }
   ArrayList<Integer> clearedRows;
@@ -74,21 +119,22 @@ void tick(){
   }
   frame = (frame + 1) % 60;
 }
-
+/*
 void keyPressed(){
-  if (keyCode == LEFT){
-    board.moveLeft();
+    if (keyCode == LEFT){
+      board.moveLeft();
+    }
+    if (keyCode == RIGHT){
+      board.moveRight();
+    }
+    if (keyCode == UP){
+      board.hardDrop();
+    }
+    if (keyCode == DOWN){
+      board.fall();
+    }
   }
-  if (keyCode == RIGHT){
-    board.moveRight();
-  }
-  if (keyCode == UP){
-    board.hardDrop();
-  }
-  if (keyCode == DOWN){
-    board.fall();
-  }
-}
+*/
   void mouseClicked(){
     if (resetButton.overButton()){
       reset();
