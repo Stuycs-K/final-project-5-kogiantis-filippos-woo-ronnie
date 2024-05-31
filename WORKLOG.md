@@ -29,6 +29,10 @@ set default north orientation for all pieces
 created button class
 added reset button
 
+### 5/31
+added keyholding delay
+fixed button text
+
 ## Filippos Kogiantis
 
 ### date 
