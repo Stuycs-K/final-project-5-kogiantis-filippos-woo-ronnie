@@ -15,10 +15,11 @@ void displayNextPiece(int x,int y,int size, Piece P){
   text("Next Piece", 210+(height -200)/2, 190);
 }
 void displayScore(int score){
+  fill(200);
+  rect(210+(height -200)/2,210+(height -200)/5,200,200);
   fill(0);
   text("Score: " + score,210+(height -200)/2,210+(height -200)/5,200,200);
 }
-void displayResetButton(){
-  Button resetButton = new Button();
-  resetButton.display();
+void displayResetButton(Button button){
+  button.display();
 }
