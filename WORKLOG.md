@@ -25,6 +25,10 @@ added text for game display
 cleaned up display
 set default north orientation for all pieces
 
+### 5/30
+created button class
+added reset button
+
 ## Filippos Kogiantis
 
 ### date 
