@@ -3,7 +3,7 @@ public abstract class Piece{
   public Block[] blocks;
   public int[][] grid;
   public boolean placed;
-  public int col;
+  public color COLOR;
   
   public Piece(){
     placed = false;
@@ -18,7 +18,7 @@ public abstract class Piece{
     return blocks;
   }
   public int getColor(){
-    return col;
+    return COLOR;
   }
   
   public boolean containsBlock(Block b){
@@ -125,5 +125,11 @@ public abstract class Piece{
       System.out.println(",");
     }
     System.out.println("___");
+  }
+  
+  public void changeColor(){
+    for (int i = 0;i<blocks.length;i++){
+      blocks[i].setColor(COLOR);
+    }
   }
 }

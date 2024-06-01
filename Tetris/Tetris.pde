@@ -3,7 +3,14 @@ ArrayList<String> pieceOrder = createPieceOrder();
 String nextPiece = pieceOrder.get(0);
 int score = 0;
 int frame = 0;
+int frameDelay = 0;
+boolean keyHeld = false;
 boolean lost = false;
+boolean pause = false;
+Button resetButton = new Button(550, 400, 100, 50, "reset");
+Button pauseButton = new Button(550,500,100,50,"Pause");
+
+
 void setup(){
   size(400,400);
   windowResize(displayWidth-200,displayHeight-200);
@@ -17,11 +24,69 @@ void draw() {
   //System.out.println(board.topleft[0] + ", " + board.topleft[1]);
   //displayGrid(board.currentPiece.grid);
   board.display(100,100,(height -200)/20);
-  if (!lost){
-    tick();
+  System.out.println(board.topleft[0] + ", " + board.topleft[1]);
+  
+  
+  
+  
+  if (!pause){
+    if (!lost){
+      tick();
+    }
   }
-  displayNextPiece(500,200,(height -200)/20,createPiece(nextPiece));
+  displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
   displayScore(score);
+  displayResetButton(resetButton);
+  pauseButton.display();
+  if(keyPressed){
+    if (keyHeld && frame % 3 == 0){
+      if (keyCode == LEFT){
+        board.moveLeft();
+      }
+      if (keyCode == RIGHT){
+        board.moveRight();
+      }
+      //if (keyCode == UP){
+      //  board.hardDrop();
+      //}
+      if (keyCode == DOWN){
+        board.fall();
+      }
+    }
+    if (frameDelay == -1){
+      frameDelay = 15;
+      if (keyCode == LEFT){
+        board.moveLeft();
+      }
+      if (keyCode == RIGHT){
+        board.moveRight();
+      }
+      if (keyCode == UP){
+        board.hardDrop();
+      }
+      if (keyCode == DOWN){
+        board.fall();
+      }
+      //if (key == 'x' || key == 'X'){
+      //  board.rotateClock();
+      //}
+      //if (key == 'c' || key == 'X'){
+      //  board.rotateAnti();
+      //}
+    }
+    else {
+      if (frameDelay > 0){
+        frameDelay--;
+      }
+      else{
+        keyHeld = true;
+      }
+    }
+  }
+  else{
+    frameDelay = -1;
+    keyHeld = false;
+  }
 }
 
 //void test(){
@@ -78,6 +143,16 @@ void tick(){
 }
 
 void keyPressed(){
+  if (key == 'x' || key == 'X'){
+    board.rotateClock();
+  }
+  if (key == 'c' || key == 'X'){
+    board.rotateAnti();
+  }
+}
+/*
+
+<<<<<<< HEAD
   if (keyCode == LEFT){
     board.moveLeft();
   }
@@ -93,7 +168,30 @@ void keyPressed(){
   if (keyCode == DOWN){
     board.rotateAnti();
   }
-}
+=======
+    if (keyCode == LEFT){
+      board.moveLeft();
+    }
+    if (keyCode == RIGHT){
+      board.moveRight();
+    }
+    if (keyCode == UP){
+      board.hardDrop();
+    }
+    if (keyCode == DOWN){
+      board.fall();
+    }
+  }
+*/
+  void mouseClicked(){
+    if (resetButton.overButton()){
+      reset();
+    }
+    if (pauseButton.overButton()){
+      pause = !pause;
+    }
+//>>>>>>> 383e8fe7df04a34e38133f13815f81d28a05b3f8
+  }
 
 
   ArrayList<String> createPieceOrder(){

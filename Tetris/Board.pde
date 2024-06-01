@@ -22,7 +22,9 @@ public class Board{
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
         if (grid[r][c] != null){
-          fill(0,0,255);
+          fill(grid[r][c].getColor());
+          //System.out.println(grid[r][c].getColor());
+          //fill(255);
         }
         else{
           fill(0);
@@ -32,7 +34,7 @@ public class Board{
     }
     //display blocks of current piece
     for (Block b: currentPiece.blocks){
-      fill(0,0,255);
+      fill(currentPiece.getColor());
       square(x+b.getCol()*size,y+b.getRow()*size,size);
     }
     
@@ -84,8 +86,8 @@ public class Board{
     for (int r = row;r>0;r--){
       for (int c = 0;c<grid[0].length;c++){
         if (grid[r-1][c] != null && grid[r][c] == null){
-          grid[r][c] = grid[r-1][c];
-          grid[r][c] = new Block(r,c);
+          //grid[r][c] = grid[r-1][c];
+          grid[r][c] = new Block(r,c,false,grid[r-1][c].getColor());
           grid[r-1][c] = null;
         }
       }
@@ -103,14 +105,14 @@ public class Board{
     if (canFall){
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
-        currentPiece.blocks[i] = new Block(b.getRow()+1,b.getCol());
+        currentPiece.blocks[i] = new Block(b.getRow()+1,b.getCol(),false,b.getColor());
       }
       topleft[0] += 1;
     }
     else{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
-        grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true);
+        grid[b.getRow()][b.getCol()] = new Block(b.getRow(),b.getCol(),true,b.getColor());
       }
       currentPiece.setPlaced(true);
     }
@@ -130,7 +132,7 @@ public class Board{
     if (canMove){
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
-        currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()-1);
+        currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()-1,false,b.getColor());
       }
       topleft[1] -= 1;
     }
@@ -145,7 +147,7 @@ public class Board{
     if (canMove){
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
-        currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()+1);
+        currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()+1,false,b.getColor());
       }
       topleft[1] += 1;
     }
@@ -228,7 +230,7 @@ public class Board{
       for (int r = 0;r<currentPiece.grid.length;r++){
         for (int c = 0;c<currentPiece.grid[0].length;c++){
           if (currentPiece.grid[r][c] == 1){
-            b[counter] = new Block(topleft[0] + r,topleft[1] + c);
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c,false,currentPiece.getColor());
             counter += 1;
           }
         }
@@ -271,7 +273,7 @@ public class Board{
       for (int r = 0;r<currentPiece.grid.length;r++){
         for (int c = 0;c<currentPiece.grid[0].length;c++){
           if (currentPiece.grid[r][c] == 1){
-            b[counter] = new Block(topleft[0] + r,topleft[1] + c);
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c,false,currentPiece.getColor());
             counter += 1;
           }
         }
