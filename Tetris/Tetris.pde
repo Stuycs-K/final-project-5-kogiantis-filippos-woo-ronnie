@@ -16,19 +16,11 @@ void setup(){
   windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
-  //board.currentPiece = new I();
-  
   frameRate(60);
 }
 void draw() {
-  //System.out.println(board.topleft[0] + ", " + board.topleft[1]);
-  //displayGrid(board.currentPiece.grid);
   board.display(100,100,(height -200)/20);
   System.out.println(board.topleft[0] + ", " + board.topleft[1]);
-  
-  
-  
-  
   if (!pause){
     if (!lost){
       tick();
@@ -88,11 +80,6 @@ void draw() {
     keyHeld = false;
   }
 }
-
-//void test(){
-  
-//}
-
 void tick(){
   if (frame % 30 == 0){
     board.fall();
@@ -136,65 +123,26 @@ void tick(){
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
     }
-    
-    
   }
   frame = (frame + 1) % 60;
 }
-
 void keyPressed(){
   if (key == 'x' || key == 'X'){
-    board.rotateClock();
+    board.rotateAnti();
   }
   if (key == 'c' || key == 'X'){
-    board.rotateAnti();
-  }
-}
-/*
-
-<<<<<<< HEAD
-  if (keyCode == LEFT){
-    board.moveLeft();
-  }
-  if (keyCode == RIGHT){
-    board.moveRight();
-  }
-  if (key==' '){
-    board.hardDrop();
-  }
-  if (keyCode == UP){
     board.rotateClock();
   }
-  if (keyCode == DOWN){
-    board.rotateAnti();
+}
+void mouseClicked(){
+  if (resetButton.overButton()){
+    reset();
   }
-=======
-    if (keyCode == LEFT){
-      board.moveLeft();
-    }
-    if (keyCode == RIGHT){
-      board.moveRight();
-    }
-    if (keyCode == UP){
-      board.hardDrop();
-    }
-    if (keyCode == DOWN){
-      board.fall();
-    }
+  if (pauseButton.overButton()){
+    pause = !pause;
   }
-*/
-  void mouseClicked(){
-    if (resetButton.overButton()){
-      reset();
-    }
-    if (pauseButton.overButton()){
-      pause = !pause;
-    }
-//>>>>>>> 383e8fe7df04a34e38133f13815f81d28a05b3f8
-  }
-
-
-  ArrayList<String> createPieceOrder(){
+}
+ArrayList<String> createPieceOrder(){
   ArrayList<String> pieces = new ArrayList<String>(7);
   ArrayList<String> choices = new ArrayList<String>(7);
   choices.add("I");choices.add("J");choices.add("L");choices.add("O");choices.add("S");choices.add("T");choices.add("Z");
