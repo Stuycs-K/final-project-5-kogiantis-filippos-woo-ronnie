@@ -136,6 +136,7 @@ void keyPressed(){
 void mouseClicked(){
   if (resetButton.overButton()){
     reset();
+    score = 0;
   }
   if (pauseButton.overButton()){
     pause = !pause;
