@@ -12,13 +12,11 @@ void displayNextPiece(int x,int y,int size, Piece P){
       }
   fill(0);
   textSize(30);
-  text("Next Piece", 210+(height -200)/2, 190);
+  text("Next Piece", 600, 190);
 }
 void displayScore(int score){
-  fill(200);
-  rect(210+(height -200)/2,210+(height -200)/5,200,200);
   fill(0);
-  text("Score: " + score,210+(height -200)/2,210+(height -200)/5,200,200);
+  text("Score: " + score,600,370,200,200);
 }
 void displayResetButton(Button button){
   button.display();

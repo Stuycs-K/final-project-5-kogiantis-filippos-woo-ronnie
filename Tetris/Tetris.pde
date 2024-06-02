@@ -7,26 +7,25 @@ int frameDelay = 0;
 boolean keyHeld = false;
 boolean lost = false;
 boolean pause = false;
-Button resetButton = new Button(550, 400, 100, 50, "reset");
-Button pauseButton = new Button(550,500,100,50,"Pause");
+Button resetButton = new Button(600, 425, 100, 50, "Reset");
+Button pauseButton = new Button(600,500,100,50,"Pause");
 
 
 void setup(){
-  size(400,400);
-  windowResize(displayWidth-200,displayHeight-200);
+  size(800,1000);
+  //  windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
   frameRate(60);
 }
 void draw() {
-  board.display(100,100,(height -200)/20);
-  System.out.println(board.topleft[0] + ", " + board.topleft[1]);
+  board.display(100,100,40);
   if (!pause){
     if (!lost){
       tick();
     }
   }
-  displayNextPiece(200+(height -200)/2,200,(height -200)/20,createPiece(nextPiece));
+  displayNextPiece(600,200,40,createPiece(nextPiece));
   displayScore(score);
   displayResetButton(resetButton);
   pauseButton.display();
