@@ -15,6 +15,8 @@ void displayNextPiece(int x,int y,int size, Piece P){
   text("Next Piece", 600, 190);
 }
 void displayScore(int score){
+  fill(255);
+  rect(600,370,100,25);
   fill(0);
   text("Score: " + score,600,370,200,200);
 }
