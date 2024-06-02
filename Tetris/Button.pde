@@ -48,6 +48,7 @@ void reset(){
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
 }
+
 void pause(){
   pause = !pause;
 }

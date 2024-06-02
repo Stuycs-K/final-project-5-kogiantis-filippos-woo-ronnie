@@ -1,6 +1,7 @@
 public class Board{
   private Block[][] grid;
   private Piece currentPiece;
+  public int[] topleft = new int[] {0,3};
   
   public Board(){
     grid = new Block[20][10];
@@ -58,6 +59,8 @@ public class Board{
     ////only spawns I pieces
     //currentPiece = new I();
     currentPiece = createPiece(n);
+    topleft[0] = 0;
+    topleft[1] = 3;
   }
   
   
@@ -103,7 +106,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow()+1,b.getCol(),false,b.getColor());
-      }  
+      }
+      topleft[0] += 1;
     }
     else{
       for (int i = 0; i < 4; i++){
@@ -129,7 +133,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()-1,false,b.getColor());
-      }  
+      }
+      topleft[1] -= 1;
     }
   }
   public void moveRight(){
@@ -143,7 +148,8 @@ public class Board{
       for (int i = 0; i < 4; i++){
         Block b = currentPiece.blocks[i];
         currentPiece.blocks[i] = new Block(b.getRow(),b.getCol()+1,false,b.getColor());
-      }  
+      }
+      topleft[1] += 1;
     }
   }
   public boolean arePlaced(){
@@ -194,4 +200,92 @@ public class Board{
     }
     return false;
   }
+  
+  
+  public void rotateClock(){
+    //currentPiece = new J();
+    //currentPiece.rotateGridClock();
+    //currentPiece.rotateGridClock();
+    //displayGrid(currentPiece.grid);
+    currentPiece.rotateGridClock();
+    int counter = 0;
+    
+    boolean canRotate = true;
+    if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
+       && topleft[0] >= 0 && topleft[1] >= 0)){
+      canRotate = false;
+    }
+    else{
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1 && grid[topleft[0] + r][topleft[1] + c] != null){
+            canRotate = false;
+          }
+        }
+      }
+    }
+    
+    if (canRotate){
+      Block[] b = currentPiece.getBlocks();
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1){
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c,false,currentPiece.getColor());
+            counter += 1;
+          }
+        }
+      }
+    }
+    else{
+      currentPiece.rotateGridAnti();
+    }
+    //currentPiece.printGrid();
+  }
+  public void rotateAnti(){
+    //currentPiece = new J();
+    //currentPiece.rotateGridClock();
+    //currentPiece.rotateGridClock();
+    //displayGrid(currentPiece.grid);
+    currentPiece.rotateGridAnti();
+    int counter = 0;
+    
+    boolean canRotate = true;
+    
+    if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
+       && topleft[0] >= 0 && topleft[1] >= 0)){
+      canRotate = false;
+    }
+    else{
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1 && grid[topleft[0] + r][topleft[1] + c] != null){
+            canRotate = false;
+          }
+        }
+      }
+    }
+    //if (!(currentPiece.grid.length + topleft[0] -1 <= grid.length && currentPiece.grid[0].length + topleft[1] -1 <= grid[1].length
+    //   && topleft[0] >= 0 && topleft[1] >= 0)){
+    //  canRotate = false;
+    //}
+    if (canRotate){
+      Block[] b = currentPiece.getBlocks();
+      for (int r = 0;r<currentPiece.grid.length;r++){
+        for (int c = 0;c<currentPiece.grid[0].length;c++){
+          if (currentPiece.grid[r][c] == 1){
+            b[counter] = new Block(topleft[0] + r,topleft[1] + c,false,currentPiece.getColor());
+            counter += 1;
+          }
+        }
+      }
+    }
+    else{
+      currentPiece.rotateGridAnti();
+    }
+    
+    
+    //currentPiece.printGrid();
+  }
+  
+  //public boolean validMove
 }

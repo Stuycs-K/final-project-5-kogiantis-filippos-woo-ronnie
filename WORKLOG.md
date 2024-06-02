@@ -33,6 +33,9 @@ added reset button
 added keyholding delay
 fixed button text
 
+## 6/2
+changed UI to use absolute positioning
+
 ## Filippos Kogiantis
 
 ### date 

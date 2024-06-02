@@ -15,9 +15,25 @@ void displayNextPiece(int x,int y,int size, Piece P){
   text("Next Piece", 600, 190);
 }
 void displayScore(int score){
+  fill(255);
+  rect(600,370,100,25);
   fill(0);
   text("Score: " + score,600,370,200,200);
 }
 void displayResetButton(Button button){
   button.display();
+}
+
+void displayGrid(int[][] grid){
+  for (int r = 0;r<grid.length;r++){
+    for (int c = 0;c<grid[0].length;c++){
+      if (grid[r][c] == 0){
+        fill(0);
+      }
+      else{
+        fill(255);
+      }
+      square(100+c*100,100+r*100,100);
+    }
+  }
 }

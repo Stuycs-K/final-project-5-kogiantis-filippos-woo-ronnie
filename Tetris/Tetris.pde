@@ -37,9 +37,9 @@ void draw() {
       if (keyCode == RIGHT){
         board.moveRight();
       }
-      if (keyCode == UP){
-        board.hardDrop();
-      }
+      //if (keyCode == UP){
+      //  board.hardDrop();
+      //}
       if (keyCode == DOWN){
         board.fall();
       }
@@ -58,6 +58,12 @@ void draw() {
       if (keyCode == DOWN){
         board.fall();
       }
+      //if (key == 'x' || key == 'X'){
+      //  board.rotateClock();
+      //}
+      //if (key == 'c' || key == 'X'){
+      //  board.rotateAnti();
+      //}
     }
     else {
       if (frameDelay > 0){
@@ -73,7 +79,6 @@ void draw() {
     keyHeld = false;
   }
 }
-
 void tick(){
   if (frame % 30 == 0){
     board.fall();
@@ -117,38 +122,27 @@ void tick(){
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
     }
-    
-    
   }
   frame = (frame + 1) % 60;
 }
-/*
 void keyPressed(){
-    if (keyCode == LEFT){
-      board.moveLeft();
-    }
-    if (keyCode == RIGHT){
-      board.moveRight();
-    }
-    if (keyCode == UP){
-      board.hardDrop();
-    }
-    if (keyCode == DOWN){
-      board.fall();
-    }
+  if (key == 'x' || key == 'X'){
+    board.rotateAnti();
   }
-*/
-  void mouseClicked(){
-    if (resetButton.overButton()){
-      reset();
-    }
-    if (pauseButton.overButton()){
-      pause = !pause;
-    }
+  if (key == 'c' || key == 'X'){
+    board.rotateClock();
   }
-
-
-  ArrayList<String> createPieceOrder(){
+}
+void mouseClicked(){
+  if (resetButton.overButton()){
+    reset();
+    score = 0;
+  }
+  if (pauseButton.overButton()){
+    pause = !pause;
+  }
+}
+ArrayList<String> createPieceOrder(){
   ArrayList<String> pieces = new ArrayList<String>(7);
   ArrayList<String> choices = new ArrayList<String>(7);
   choices.add("I");choices.add("J");choices.add("L");choices.add("O");choices.add("S");choices.add("T");choices.add("Z");
