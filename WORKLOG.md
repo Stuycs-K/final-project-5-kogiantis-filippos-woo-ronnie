@@ -35,6 +35,8 @@ fixed button text
 
 ## 6/2
 changed UI to use absolute positioning
+fixed score display and score reset
+cleaned up code for demo
 
 ## Filippos Kogiantis
 
