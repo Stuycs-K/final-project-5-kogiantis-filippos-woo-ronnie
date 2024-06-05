@@ -90,4 +90,49 @@ adjusted display function so the size of the grid fits to the window size
 adjusted tick() so that everytime a peice is placed, a new one spawns
 Updated Log
 
+### date 5/25
+
+CW
+wrote randomizer for piece order
+adjusted tick to go through piece order, re-randomizing if necessary
+fixed an error with pieceOrder, there was an extra line that caused size error.
+
+
+HW
+fixed randomizer all randomizer issues.
+wrote displayPiece for the nextPiece.
+wrote basic function to check if player has lost
+added lost function to tick()
+added score function (depending on how many rows cleared at once)
+created all piece classes, and added to radomizer
+simpified/generalized spawnPiece;
+
+### date 5/26
+
+CW
+worked on rotation
+wrote a method that rotates a 2d array (3x3 only)
+
+HW
+Wrote a method that rotates the piece on the board
+Fixed any issues with code/errors
+generalized code for I piece (can rotate 4x4)
+
+
+### date 5/27
+
+CW
+
+HW
+
+### date 5/28
+
+CW
+
+HW
+
+
+### date 6/3/2024
+Updated Log
+
 
