@@ -38,6 +38,9 @@ changed UI to use absolute positioning
 fixed score display and score reset
 cleaned up code for demo
 
+### 6/5
+cleaned up code and removed extra comments
+
 ## Filippos Kogiantis
 
 ### date 

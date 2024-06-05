@@ -2,8 +2,6 @@ public class J extends Piece{
   public J(){
     super();
     name = "J";
-    //grid will hold the location of the blocks
-    //topleft will be 
     grid = new int[][] {
      {1,0,0},
      {1,1,1},

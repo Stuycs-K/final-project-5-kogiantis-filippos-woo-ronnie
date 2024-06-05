@@ -1,5 +1,4 @@
 public class O extends Piece{
-  
   public O(){
     super();
     name = "O";

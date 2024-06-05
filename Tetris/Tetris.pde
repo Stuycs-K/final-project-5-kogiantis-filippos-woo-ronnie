@@ -10,7 +10,6 @@ boolean pause = false;
 Button resetButton = new Button(600, 425, 100, 50, "Reset");
 Button pauseButton = new Button(600,500,100,50,"Pause");
 
-
 void setup(){
   size(800,1000);
   //  windowResize(displayWidth-200,displayHeight-200);
@@ -20,10 +19,8 @@ void setup(){
 }
 void draw() {
   board.display(100,100,40);
-  if (!pause){
-    if (!lost){
-      tick();
-    }
+  if (!pause && !lost){
+    tick();
   }
   displayNextPiece(600,200,40,createPiece(nextPiece));
   displayScore(score);
@@ -37,9 +34,6 @@ void draw() {
       if (keyCode == RIGHT){
         board.moveRight();
       }
-      //if (keyCode == UP){
-      //  board.hardDrop();
-      //}
       if (keyCode == DOWN){
         board.fall();
       }
@@ -58,12 +52,6 @@ void draw() {
       if (keyCode == DOWN){
         board.fall();
       }
-      //if (key == 'x' || key == 'X'){
-      //  board.rotateClock();
-      //}
-      //if (key == 'c' || key == 'X'){
-      //  board.rotateAnti();
-      //}
     }
     else {
       if (frameDelay > 0){
@@ -85,13 +73,8 @@ void tick(){
   }
   ArrayList<Integer> clearedRows;
   nextPiece = pieceOrder.get(0);
-   // so that we can display next peice at any moment
-
-   //String nextPiece = pieceOrder.get(0);
-  
   if (board.currentPlaced() == true){
     clearedRows = board.whichRowsFilled();
-    
     //update score
     if (clearedRows.size() == 1){
       score += 100;
@@ -105,19 +88,15 @@ void tick(){
     if (clearedRows.size() == 4){
       score += 800;
     }
-    
-    
     for (int r : clearedRows){
       board.clearRow(r);
       board.rowFall(r);
     }
     clearedRows = null;
     if (board.lost()){
-      //System.out.println("LOST");
       lost = true;
     }
     board.spawnPiece(nextPiece);
-    
     pieceOrder.remove(0);
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
@@ -148,11 +127,9 @@ ArrayList<String> createPieceOrder(){
   choices.add("I");choices.add("J");choices.add("L");choices.add("O");choices.add("S");choices.add("T");choices.add("Z");
   for (int i = 0;i<7;i++){
     pieces.add((int)(Math.random()*pieces.size()),choices.get(i));
-    //choices.remove(i);
   }
   return pieces;
 }
-
 Piece createPiece(String s){
   if (s.equals("L")){
     return new L();
