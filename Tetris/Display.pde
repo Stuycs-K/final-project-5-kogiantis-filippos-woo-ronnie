@@ -7,9 +7,9 @@ void displayNextPiece(int x,int y,int size, Piece P){
     }
   }
   for (Block b: P.blocks){
-        fill(P.getColor());
-        square(x+(b.getCol()-3)*size,y+b.getRow()*size,size);
-      }
+    fill(P.getColor());
+    square(x+(b.getCol()-3)*size,y+b.getRow()*size,size);
+  }
   fill(0);
   textSize(30);
   text("Next Piece", 600, 190);
@@ -23,7 +23,6 @@ void displayScore(int score){
 void displayResetButton(Button button){
   button.display();
 }
-
 void displayGrid(int[][] grid){
   for (int r = 0;r<grid.length;r++){
     for (int c = 0;c<grid[0].length;c++){

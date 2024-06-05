@@ -32,56 +32,18 @@ public class Board{
         square(x+c*size,y+r*size,size);
       }
     }
-    //display blocks of current piece
     for (Block b: currentPiece.blocks){
       fill(currentPiece.getColor());
       square(x+b.getCol()*size,y+b.getRow()*size,size);
     }
-    
     noFill();
     noStroke();
   }
-  
-  
-  /*
-  void spawnPiece()
-  
-  FUNCTION (as of now):
-  spawns a block at the top of the grid. changes values of grid.
-  
-  PROBLEMS:
-  
-  [fixed]
-  does not change the value withing the grid itself. this needs to be fixed.
-  
-  */
   public void spawnPiece(String n){
-    ////only spawns I pieces
-    //currentPiece = new I();
     currentPiece = createPiece(n);
     topleft[0] = 0;
     topleft[1] = 3;
   }
-  
-  
-  /*
-  boolean fall()
-  
-  FUNCTION (as of now):
-  if there is an empty space below the block, the piece will fall.
-  single time
-  
-  returns if the piece has been placed
-  
-  PROBLEMS:
-  does not have a way of checking if the peice has been placed in a particular spot.
-  this might require us to change from an int[][] grid to a piece[][] or block[][].
-  
-  */
-  
-  
-  
-  
   public void rowFall(int row){
     for (int r = row;r>0;r--){
       for (int c = 0;c<grid[0].length;c++){
@@ -93,8 +55,6 @@ public class Board{
       }
     }
   }
-  
-  
   public void fall(){
     boolean canFall = true;
     for (Block b: currentPiece.blocks){
@@ -153,15 +113,11 @@ public class Board{
     }
   }
   public boolean arePlaced(){
-    int sum = 0;
     for (int r = 0;r<grid.length;r++){
       for (int c = 0;c<grid[0].length;c++){
         if (grid[r][c] != null){
           System.out.println(grid[r][c].isPlaced());
         }
-        
-        //if the board is empty, there are no placed peices, so it triggers true.
-        // I need a sum to keep track of the amount of peices that are not placed and actual pieces on board.
         if (grid[r][c] != null && grid[r][c].isPlaced() == false){
           return false;
         }
@@ -191,7 +147,6 @@ public class Board{
       grid[r][c] = null;
     }
   }
-  
   public boolean lost(){
     for (int c = 0;c<grid[0].length;c++){
       if (grid[0][c] != null){
@@ -200,16 +155,9 @@ public class Board{
     }
     return false;
   }
-  
-  
   public void rotateClock(){
-    //currentPiece = new J();
-    //currentPiece.rotateGridClock();
-    //currentPiece.rotateGridClock();
-    //displayGrid(currentPiece.grid);
     currentPiece.rotateGridClock();
     int counter = 0;
-    
     boolean canRotate = true;
     if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
        && topleft[0] >= 0 && topleft[1] >= 0)){
@@ -224,7 +172,6 @@ public class Board{
         }
       }
     }
-    
     if (canRotate){
       Block[] b = currentPiece.getBlocks();
       for (int r = 0;r<currentPiece.grid.length;r++){
@@ -239,18 +186,11 @@ public class Board{
     else{
       currentPiece.rotateGridAnti();
     }
-    //currentPiece.printGrid();
   }
   public void rotateAnti(){
-    //currentPiece = new J();
-    //currentPiece.rotateGridClock();
-    //currentPiece.rotateGridClock();
-    //displayGrid(currentPiece.grid);
     currentPiece.rotateGridAnti();
     int counter = 0;
-    
     boolean canRotate = true;
-    
     if (!(currentPiece.grid.length + topleft[0]<= grid.length && currentPiece.grid[0].length + topleft[1] <= grid[1].length
        && topleft[0] >= 0 && topleft[1] >= 0)){
       canRotate = false;
@@ -264,10 +204,6 @@ public class Board{
         }
       }
     }
-    //if (!(currentPiece.grid.length + topleft[0] -1 <= grid.length && currentPiece.grid[0].length + topleft[1] -1 <= grid[1].length
-    //   && topleft[0] >= 0 && topleft[1] >= 0)){
-    //  canRotate = false;
-    //}
     if (canRotate){
       Block[] b = currentPiece.getBlocks();
       for (int r = 0;r<currentPiece.grid.length;r++){
@@ -282,10 +218,5 @@ public class Board{
     else{
       currentPiece.rotateGridAnti();
     }
-    
-    
-    //currentPiece.printGrid();
   }
-  
-  //public boolean validMove
 }

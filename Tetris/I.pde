@@ -12,5 +12,4 @@ public class I extends Piece{
     COLOR = color(0, 255, 255);
     super.changeColor();
   }
-  
 }
