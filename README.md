@@ -7,7 +7,11 @@ Group Name: T-spin Triple Tower <br />
 ## Overview
 Project Description: We will create the puzzle game Tetris in Processing. We will prioritize making the default single-player game mode with basic features. If we get the base game working early, we can implement more complex features like t-spins, combos, and a 1v1 mode.
 ## Instructions
+The game runs automatically in Processing.
+
 Left - move piece left <br />
 Right - move piece right <br />
 Down - soft drop <br />
 Up - hard drop <br />
+C - rotate clockwise <br />
+X - rotate counterclockwise <br />
