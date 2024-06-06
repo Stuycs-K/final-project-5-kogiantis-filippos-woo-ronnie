@@ -43,7 +43,6 @@ public abstract class Piece{
   public void rotateGridClock(){
     int r = grid.length-1;
     int c = grid[0].length-1;
-    //int shift = r-1;
     for (int l = 0;l<=(r+1)/2 - 1;l++){
       int shift = r-1-2*l;
       for (int s = 0;s<=shift;s++){

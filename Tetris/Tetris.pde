@@ -12,7 +12,6 @@ Button pauseButton = new Button(600,500,100,50,"Pause");
 
 void setup(){
   size(800,1000);
-  //  windowResize(displayWidth-200,displayHeight-200);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
   frameRate(60);
@@ -75,7 +74,6 @@ void tick(){
   nextPiece = pieceOrder.get(0);
   if (board.currentPlaced() == true){
     clearedRows = board.whichRowsFilled();
-    //update score
     if (clearedRows.size() == 1){
       score += 100;
     }

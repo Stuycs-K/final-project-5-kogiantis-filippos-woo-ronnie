@@ -18,13 +18,10 @@ public class Board{
   public void display(int x,int y, int size){
     fill(0,0,0);
     stroke(255);
-    //display placed blocks
     for (int r = 0; r < 20; r += 1){
       for (int c = 0; c < 10; c += 1){
         if (grid[r][c] != null){
           fill(grid[r][c].getColor());
-          //System.out.println(grid[r][c].getColor());
-          //fill(255);
         }
         else{
           fill(0);
@@ -48,7 +45,6 @@ public class Board{
     for (int r = row;r>0;r--){
       for (int c = 0;c<grid[0].length;c++){
         if (grid[r-1][c] != null && grid[r][c] == null){
-          //grid[r][c] = grid[r-1][c];
           grid[r][c] = new Block(r,c,false,grid[r-1][c].getColor());
           grid[r-1][c] = null;
         }
