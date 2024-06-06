@@ -41,6 +41,11 @@ cleaned up code for demo
 ### 6/5
 cleaned up code and removed extra comments
 
+### 6/6
+cleaned up code more
+finished UML diagram
+updated readme for controls
+
 ## Filippos Kogiantis
 
 ### date 
