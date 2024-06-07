@@ -5,7 +5,7 @@ Period 5 <br />
 Ronnie Woo & Filippos Kogiantis <br />
 Group Name: T-spin Triple Tower <br />
 ## Overview
-Project Description: We will create the puzzle game Tetris in Processing. We will prioritize making the default single-player game mode with basic features. If we get the base game working early, we can implement more complex features like t-spins, combos, and a 1v1 mode.
+Project Description: We created the classic puzzle game Tetris in Processing. We prioritized making the default single-player game mode with basic features. The game displays properly, and pieces automatically spawn and fall. Pieces can also be moved left and right, rotated, or softdropped/harddropped. If we get the base game working early, we can implement more complex features like t-spins, combos, and a 1v1 mode.
 ## Instructions
 The game runs automatically in Processing.
 
