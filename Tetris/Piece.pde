@@ -1,9 +1,9 @@
 public abstract class Piece{
-  public String name;
-  public Block[] blocks;
-  public int[][] grid;
-  public boolean placed;
-  public color COLOR;
+  private String name;
+  private Block[] blocks;
+  private int[][] grid;
+  private boolean placed;
+  private color COLOR;
   
   public Piece(){
     placed = false;
@@ -14,12 +14,36 @@ public abstract class Piece{
   public void setPlaced(boolean b){
     placed = b;
   }
+  
+  
   public Block[] getBlocks(){
     return blocks;
   }
-  public int getColor(){
+  public void setBlocks(Block[] b){
+    blocks = b;
+  }
+  
+  public String getName(){
+    return name;
+  }
+  public void setName(String n){
+    name = n;
+  }
+  
+  public int[][] getGrid(){
+    return grid;
+  }
+  public void setGrid(int[][] g){
+    grid = g;
+  }
+  
+  public color getColor(){
     return COLOR;
   }
+  public void setColor(color c){
+    COLOR = c;
+  }
+  
   public boolean containsBlock(Block b){
     for (Block block: blocks){
       if (block == b){
@@ -28,9 +52,8 @@ public abstract class Piece{
     }
     return false;
   }
-  public String getName(){
-    return name;
-  }
+  
+  
   public Block[][] getGrid(Block[][] grid, int start_r, int start_c){
     Block[][] g = new Block[grid.length][grid[0].length];
     for(int r = 0;r<3;r++){
