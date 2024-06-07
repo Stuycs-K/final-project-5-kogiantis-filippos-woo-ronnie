@@ -46,6 +46,9 @@ cleaned up code more
 finished UML diagram
 updated readme for controls
 
+### 6/7
+updated readme for features and major bugs
+
 ## Filippos Kogiantis
 
 ### date 
