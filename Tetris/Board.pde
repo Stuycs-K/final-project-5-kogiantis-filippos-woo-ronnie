@@ -1,6 +1,7 @@
 public class Board{
   private Block[][] grid;
   private Piece currentPiece;
+  private Piece ghostPiece;
   public int[] topleft = new int[] {0,3};
   
   public Board(){
@@ -33,6 +34,29 @@ public class Board{
         }
         square(x+c*size,y+r*size,size);
       }
+    }
+    ghostPiece = createPiece(currentPiece.getName());
+    ghostPiece.setBlocks(Arrays.copyOf(currentPiece.getBlocks(),4));
+    ghostPiece.setGrid(Arrays.copyOf(currentPiece.getGrid(),4));
+    ghostPiece.setPlaced(false);
+    ghostPiece.setColor(currentPiece.getColor());
+    boolean ghostFall = true;
+    while (ghostFall){
+      for (Block b: ghostPiece.blocks){
+        if (b.getRow() == grid.length - 1 || grid[b.getRow()+1][b.getCol()] != null){
+          ghostFall = false;
+        }
+      }
+      if (ghostFall){
+        for (int i = 0; i < 4; i++){
+          Block b = ghostPiece.blocks[i];
+          ghostPiece.blocks[i] = new Block(b.getRow()+1,b.getCol(),false,b.getColor());
+        }
+      }
+    }
+    for (Block b: ghostPiece.blocks){
+      fill(ghostPiece.getColor(),200);
+      square(x+b.getCol()*size,y+b.getRow()*size,size);
     }
     for (Block b: currentPiece.blocks){
       fill(currentPiece.getColor());
