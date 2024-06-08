@@ -49,6 +49,9 @@ updated readme for controls
 ### 6/7
 updated readme for features and major bugs
 
+### 6/8
+created functional ghostPiece
+
 ## Filippos Kogiantis
 
 ### date 

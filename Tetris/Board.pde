@@ -30,6 +30,20 @@ public class Board{
         square(x+c*size,y+r*size,size);
       }
     }
+    displayGhostPiece(x,y,size);
+    for (Block b: currentPiece.blocks){
+      fill(currentPiece.getColor());
+      square(x+b.getCol()*size,y+b.getRow()*size,size);
+    }
+    noFill();
+    noStroke();
+  }
+  public void spawnPiece(String n){
+    currentPiece = createPiece(n);
+    topleft[0] = 0;
+    topleft[1] = 3;
+  }
+  void displayGhostPiece(int x,int y, int size){
     ghostPiece = createPiece(currentPiece.getName());
     ghostPiece.setBlocks(Arrays.copyOf(currentPiece.getBlocks(),4));
     ghostPiece.setGrid(Arrays.copyOf(currentPiece.getGrid(),4));
@@ -53,17 +67,6 @@ public class Board{
       fill(ghostPiece.getColor(),200);
       square(x+b.getCol()*size,y+b.getRow()*size,size);
     }
-    for (Block b: currentPiece.blocks){
-      fill(currentPiece.getColor());
-      square(x+b.getCol()*size,y+b.getRow()*size,size);
-    }
-    noFill();
-    noStroke();
-  }
-  public void spawnPiece(String n){
-    currentPiece = createPiece(n);
-    topleft[0] = 0;
-    topleft[1] = 3;
   }
   public void rowFall(int row){
     for (int r = row;r>0;r--){
