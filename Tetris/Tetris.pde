@@ -25,50 +25,53 @@ void draw() {
   if (!pause && !lost){
     tick();
   }
+  frame = (frame + 1) % 60;
   displayPiece(800,200,40,createPiece(nextPiece));
   displayPiece(100,200,40,createPiece(PieceHeld));
   displayScore(score);
   displayResetButton(resetButton);
   pauseButton.display();
-  if(keyPressed){
-    if (keyHeld && frame % 3 == 0){
-      if (keyCode == LEFT){
-        board.moveLeft();
+  if (!pause){
+    if(keyPressed){
+      if (keyHeld && frame % 3 == 0){
+        if (keyCode == LEFT){
+          board.moveLeft();
+        }
+        if (keyCode == RIGHT){
+          board.moveRight();
+        }
+        if (keyCode == DOWN){
+          board.fall();
+        }
       }
-      if (keyCode == RIGHT){
-        board.moveRight();
+      if (frameDelay == -1){
+        frameDelay = 15;
+        if (keyCode == LEFT){
+          board.moveLeft();
+        }
+        if (keyCode == RIGHT){
+          board.moveRight();
+        }
+        if (keyCode == UP){
+          board.hardDrop();
+        }
+        if (keyCode == DOWN){
+          board.fall();
+        }
       }
-      if (keyCode == DOWN){
-        board.fall();
+      else {
+        if (frameDelay > 0){
+          frameDelay--;
+        }
+        else{
+          keyHeld = true;
+        }
       }
     }
-    if (frameDelay == -1){
-      frameDelay = 15;
-      if (keyCode == LEFT){
-        board.moveLeft();
-      }
-      if (keyCode == RIGHT){
-        board.moveRight();
-      }
-      if (keyCode == UP){
-        board.hardDrop();
-      }
-      if (keyCode == DOWN){
-        board.fall();
-      }
+    else{
+      frameDelay = -1;
+      keyHeld = false;
     }
-    else {
-      if (frameDelay > 0){
-        frameDelay--;
-      }
-      else{
-        keyHeld = true;
-      }
-    }
-  }
-  else{
-    frameDelay = -1;
-    keyHeld = false;
   }
 }
 void tick(){
@@ -106,17 +109,19 @@ void tick(){
     }
     isJustHeld = false;
   }
-  frame = (frame + 1) % 60;
+  
 }
 void keyPressed(){
-  if (key == 'x' || key == 'X'){
-    board.rotateAnti();
-  }
-  if (key == 'c' || key == 'X'){
-    board.rotateClock();
-  }
-  if (keyCode == SHIFT){
-    hold();
+  if (!pause){
+    if (key == 'x' || key == 'X'){
+      board.rotateAnti();
+    }
+    if (key == 'c' || key == 'X'){
+      board.rotateClock();
+    }
+    if (keyCode == SHIFT){
+      hold();
+    }
   }
 }
 void mouseClicked(){
