@@ -15,8 +15,10 @@ Down - soft drop <br />
 Up - hard drop <br />
 C - rotate clockwise <br />
 X - rotate counterclockwise <br />
+Shift - hold piece <br />
 
 ## Presentation
 
 ## Major Bugs
-Our game can't take multiple inputs at once. Holding several keys at the same time often causes unintentional actions. Because of this, you can only press/hold one key at a time.
+1. There is a small chance that holding a piece will cause the game to crash.
+2. Our game can't take multiple inputs at once. Holding several keys at the same time often causes unintentional actions. Because of this, you can only press/hold one key at a time.
