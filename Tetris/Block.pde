@@ -3,10 +3,8 @@ public class Block{
   private int c;
   private boolean placed;
   private color COLOR;
+  
   public Block(int row, int col){
-    //r = row;
-    //c = col;
-    //placed = false;
     this(row,col,false);
   }
   public Block(int row, int col, boolean p){
@@ -30,7 +28,6 @@ public class Block{
   public void setColor(color col){
     COLOR = col;
   }
-  
   public boolean isPlaced(){
     return placed;
   }

@@ -26,8 +26,6 @@ public class Button{
     rect(x, y, buttonWidth, buttonHeight);
     fill(0);
     text(name,x,y,buttonWidth, buttonHeight);
-    //fill(0);
-    
   }
   boolean overButton(){
     if (mouseX >= x && mouseX <= x+buttonWidth && mouseY >= y && mouseY <= y+buttonHeight){
