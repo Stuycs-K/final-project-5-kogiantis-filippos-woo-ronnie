@@ -14,13 +14,14 @@ void displayPiece(int x,int y,int size, Piece P){
   }
   fill(0);
   textSize(30);
-  text("Next Piece", 600, 190);
+  text("Next", 850, 190);
+  text("Hold", 150, 190);
 }
 void displayScore(int score){
   fill(255);
-  rect(600,370,200,25);
+  rect(800,370,170,25);
   fill(0);
-  text("Score: " + score,600,370,200,200);
+  text("Score: " + score,800,370,200,200);
 }
 void displayResetButton(Button button){
   button.display();
