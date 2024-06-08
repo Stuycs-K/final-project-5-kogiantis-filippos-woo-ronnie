@@ -177,7 +177,6 @@ void hold(){
       if (pieceOrder.size() == 0){
         pieceOrder = createPieceOrder();
       }
-      pieceOrder.remove(0);
       board.spawnPiece(pieceOrder.get(0));
       pieceOrder.remove(0);
     }
