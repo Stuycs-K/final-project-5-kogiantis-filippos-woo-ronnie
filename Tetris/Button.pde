@@ -45,6 +45,8 @@ void reset(){
   lost = false;
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
+  PieceHeld = null;
+  isJustHeld = false;
 }
 void pause(){
   pause = !pause;
