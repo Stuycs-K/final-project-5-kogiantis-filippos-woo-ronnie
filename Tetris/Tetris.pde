@@ -1,3 +1,4 @@
+import java.util.Arrays;
 Board board = new Board();
 ArrayList<String> pieceOrder = createPieceOrder();
 String nextPiece = pieceOrder.get(0);
