@@ -8,25 +8,25 @@ int frameDelay = 0;
 boolean keyHeld = false;
 boolean lost = false;
 boolean pause = false;
-Button resetButton = new Button(800, 425, 100, 50, "Reset");
-Button pauseButton = new Button(800,500,100,50,"Pause");
+Button resetButton = new Button(600, 425, 100, 50, "Reset");
+Button pauseButton = new Button(600,500,100,50,"Pause");
 
 Piece PieceHeld = null;
 boolean isJustHeld = false;
 
 void setup(){
-  size(1200,900);
+  size(800,1000);
   board.spawnPiece(nextPiece);
   pieceOrder.remove(0);
   frameRate(60);
 }
 void draw() {
-  board.display(300,50,40);
+  board.display(100,50,40);
   if (!pause && !lost){
     tick();
   }
-  displayPiece(800,200,40,createPiece(nextPiece));
-  displayPiece(100,200,40,PieceHeld);
+  displayPiece(600,200,40,createPiece(nextPiece));
+  displayPiece(200,0,40,PieceHeld);
   displayScore(score);
   displayResetButton(resetButton);
   pauseButton.display();
