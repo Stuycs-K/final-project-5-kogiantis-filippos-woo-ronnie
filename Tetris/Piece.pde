@@ -15,7 +15,6 @@ public abstract class Piece{
     placed = b;
   }
   
-  
   public Block[] getBlocks(){
     return blocks;
   }

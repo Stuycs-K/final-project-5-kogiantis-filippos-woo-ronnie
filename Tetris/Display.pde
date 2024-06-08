@@ -1,4 +1,4 @@
-void displayNextPiece(int x,int y,int size, Piece P){
+void displayPiece(int x,int y,int size, Piece P){
   for (int r = 0;r<4;r++){
     for (int c = 0;c<4;c++){
       fill(0);
@@ -6,9 +6,11 @@ void displayNextPiece(int x,int y,int size, Piece P){
       square(x+c*size,y+r*size,size);
     }
   }
-  for (Block b: P.blocks){
-    fill(P.getColor());
-    square(x+(b.getCol()-3)*size,y+b.getRow()*size,size);
+  if (P != null){
+    for (Block b: P.blocks){
+      fill(P.getColor());
+      square(x+(b.getCol()-3)*size,y+b.getRow()*size,size);
+    }
   }
   fill(0);
   textSize(30);

@@ -25,7 +25,8 @@ void draw() {
   if (!pause && !lost){
     tick();
   }
-  displayNextPiece(600,200,40,createPiece(nextPiece));
+  displayPiece(600,200,40,createPiece(nextPiece));
+  displayPiece(200,0,40,PieceHeld);
   displayScore(score);
   displayResetButton(resetButton);
   pauseButton.display();
