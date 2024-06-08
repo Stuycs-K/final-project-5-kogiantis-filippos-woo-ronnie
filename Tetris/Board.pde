@@ -15,6 +15,11 @@ public class Board{
   public boolean currentPlaced(){
     return currentPiece.isPlaced();
   }
+  public Piece getCurrPiece(){
+    return currentPiece;
+  }
+  public void setCurrPiece(){
+  }
   public void display(int x,int y, int size){
     fill(0,0,0);
     stroke(255);

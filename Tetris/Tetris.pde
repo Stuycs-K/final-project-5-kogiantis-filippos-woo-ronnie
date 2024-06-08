@@ -10,6 +10,9 @@ boolean pause = false;
 Button resetButton = new Button(600, 425, 100, 50, "Reset");
 Button pauseButton = new Button(600,500,100,50,"Pause");
 
+Piece PieceHeld = null;
+boolean isJustHeld = false;
+
 void setup(){
   size(800,1000);
   board.spawnPiece(nextPiece);
@@ -99,6 +102,7 @@ void tick(){
     if (pieceOrder.size() == 0){
       pieceOrder = createPieceOrder();
     }
+    isJustHeld = false;
   }
   frame = (frame + 1) % 60;
 }
@@ -108,6 +112,9 @@ void keyPressed(){
   }
   if (key == 'c' || key == 'X'){
     board.rotateClock();
+  }
+  if (keyCode == SHIFT){
+    hold();
   }
 }
 void mouseClicked(){
@@ -151,4 +158,26 @@ Piece createPiece(String s){
     return new S();
   }
   return null;
+}
+
+void hold(){
+  if (isJustHeld == false){
+    if (PieceHeld == null){
+      PieceHeld = board.getCurrPiece();
+      pieceOrder.remove(0);
+      if (pieceOrder.size() == 0){
+        pieceOrder = createPieceOrder();
+      }
+      board.spawnPiece(pieceOrder.get(0));
+      pieceOrder.remove(0);
+    }
+    else{
+      Piece temp = PieceHeld;
+      PieceHeld = board.getCurrPiece();
+      
+      board.spawnPiece(temp.getName());
+    }
+    isJustHeld = true;
+  }
+  
 }
