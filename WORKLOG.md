@@ -51,6 +51,7 @@ updated readme for features and major bugs
 
 ### 6/8
 created functional ghostPiece
+fixed game display
 
 ## Filippos Kogiantis
 
