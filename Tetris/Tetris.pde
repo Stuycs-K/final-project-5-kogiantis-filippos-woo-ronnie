@@ -11,7 +11,7 @@ boolean pause = false;
 Button resetButton = new Button(800, 425, 100, 50, "Reset");
 Button pauseButton = new Button(800,500,100,50,"Pause");
 
-Piece PieceHeld = null;
+String PieceHeld = null;
 boolean isJustHeld = false;
 
 void setup(){
@@ -26,7 +26,7 @@ void draw() {
     tick();
   }
   displayPiece(800,200,40,createPiece(nextPiece));
-  displayPiece(100,200,40,PieceHeld);
+  displayPiece(100,200,40,createPiece(PieceHeld));
   displayScore(score);
   displayResetButton(resetButton);
   pauseButton.display();
@@ -138,6 +138,9 @@ ArrayList<String> createPieceOrder(){
   return pieces;
 }
 Piece createPiece(String s){
+  if (s == null){
+    return null;
+  }
   if (s.equals("L")){
     return new L();
   }
@@ -165,7 +168,7 @@ Piece createPiece(String s){
 void hold(){
   if (isJustHeld == false){
     if (PieceHeld == null){
-      PieceHeld = board.getCurrPiece();
+      PieceHeld = board.getCurrPiece().getName();
       pieceOrder.remove(0);
       if (pieceOrder.size() == 0){
         pieceOrder = createPieceOrder();
@@ -174,10 +177,10 @@ void hold(){
       pieceOrder.remove(0);
     }
     else{
-      Piece temp = PieceHeld;
-      PieceHeld = board.getCurrPiece();
+      String temp = PieceHeld;
+      PieceHeld = board.getCurrPiece().getName();
       
-      board.spawnPiece(temp.getName());
+      board.spawnPiece(temp);
     }
     isJustHeld = true;
   }
