@@ -52,6 +52,9 @@ updated readme for features and major bugs
 ### 6/8
 created functional ghostPiece
 fixed game display
+finalized code
+made video
+updated bugs
 
 ## Filippos Kogiantis
 
