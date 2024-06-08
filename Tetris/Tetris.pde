@@ -174,10 +174,10 @@ void hold(){
   if (isJustHeld == false){
     if (PieceHeld == null){
       PieceHeld = board.getCurrPiece().getName();
-      pieceOrder.remove(0);
       if (pieceOrder.size() == 0){
         pieceOrder = createPieceOrder();
       }
+      pieceOrder.remove(0);
       board.spawnPiece(pieceOrder.get(0));
       pieceOrder.remove(0);
     }
