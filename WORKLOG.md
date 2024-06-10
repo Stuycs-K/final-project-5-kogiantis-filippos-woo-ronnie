@@ -65,7 +65,7 @@ CW
 HW
 
 
-### date 5/22/2024
+### 5/22/2024
 
 CW
 made basic board class
@@ -78,7 +78,7 @@ Added comments/descriptions to each function
 
 
 
-### date 5/23
+### 5/23
 
 CW
 Created L and T Pieces (classes)
@@ -92,7 +92,7 @@ Couldn't fix fall though. I tried to implement the isPlaced() into it, but wasn'
 Added accessor methods to Piece/Block classes.
 
 
-### date 5/24
+### 5/24
 
 CW
 N/A out for Calc BC exam
@@ -108,7 +108,7 @@ adjusted display function so the size of the grid fits to the window size
 adjusted tick() so that everytime a peice is placed, a new one spawns
 Updated Log
 
-### date 5/25
+### 5/25
 
 CW
 wrote randomizer for piece order
@@ -117,40 +117,87 @@ fixed an error with pieceOrder, there was an extra line that caused size error.
 
 
 HW
-fixed randomizer all randomizer issues.
+fixed randomizer bug.
 wrote displayPiece for the nextPiece.
 wrote basic function to check if player has lost
 added lost function to tick()
 added score function (depending on how many rows cleared at once)
-created all piece classes, and added to radomizer
-simpified/generalized spawnPiece;
 
-### date 5/26
+
+### 5/26
 
 CW
 worked on rotation
-wrote a method that rotates a 2d array (3x3 only)
 
 HW
-Wrote a method that rotates the piece on the board
-Fixed any issues with code/errors
-generalized code for I piece (can rotate 4x4)
+Fixed bugs with code/errors
 
 
-### date 5/27
+
+
+### 5/28
 
 CW
+added Randomizer to tick()
+fixed createOrder bug
+merge
 
 HW
+created all piece classes, and added to radomizer
+simpified/generalized spawnPiece;
 
-### date 5/28
+### 5/29
 
 CW
+created a function that rotates the "perimeter" of a 2d array clockwise
+HW
+generalized the rotation function, so entire array rotateas clockwise
+wrote counterclockwise rotation
+Got rotations working on the board (no validation check)
+
+### 5/30
+
+CW
+generalized roattion function for larger array (4x4), so I piece can rotate
+wrote validation checks for rotation
 
 HW
+wrote reset() and pause() for UI
+gave color variable to all blocks and made it display
 
 
-### date 6/3/2024
+### 5/31
+
+CW
+implemented pause and reset button into game
+fixed score
+
+HW
+merged general rotation and main
+removed DS_Store junk file
+
+### 6/1
+
+CW
+fixed rotation merge
+
+### 6/3
+
+CW
 Updated Log
+
+### 6/6 
+CW 
+made all instance vars private
+
+### 6/8
+HW
+wrote hold()
+modified pause and reset
+generalized displayNext Piece
+adjusted screen size
+fixed pieceHeld display
+fixed hold() bug
+
 
 
